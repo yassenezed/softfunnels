@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="778" height="625" viewBox="0 0 778 625">
+  <defs>
+    <style>
+      .cls-1 {
+        mix-blend-mode: difference;
+      }
+
+      .cls-2 {
+        font-size: 14.668px;
+        fill: #fff;
+        font-family: Rubik;
+        font-weight: 500;
+      }
+    </style>
+    <image id="image" width="17" height="25" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAZCAYAAADXPsWXAAABfklEQVQ4jaXVP0iWURTH8U/yQtQWNjRF0BShRC3VGNlQYEPQIjTYUFtIpEtDW0TRkFMITa4FLkZBRS0VlIVENKhTUJBJBaH9gzjwvnC53pvPm7/tnPO73+fec/88G35N7lHQMQziILbjB+bwAHfwKh2SQ3ZjAgdK5ES3cAa/I9WTFI7gTQNAaBiz2JJCduBeg8GpduFxCpnqEtBRHy612svor5iW8AibcLTiGQvIUKUYO3ECX9vxXtxHb+Zr9bR3JNcnHE4AoRmcKniXA7KtUHhWmd00vufJgKwUzFsrkOhNqwRZKJjjrBwq5C9jYwkyU/lqNPYsdrb7dgPnCr7Ncez34UUF1EQfYyYv8W4dkMnOib24DsiVDuQ2PvwH4CYW01t8ukvAH4zKnoK7eNoFZATfckjoZEPAW4x3ghzyHucbQAbTIIeEruPJPwDRh/m1IKHj+FnIP8TVPFmDfMFAlvtce5hqkFAs6UISx/sSv45VWnWtM13DfjzH66IDfwGfNEPGH2dnOwAAAABJRU5ErkJggg=="/>
+  </defs>
+  <g class="cls-1">
+    <text id="NADOR" class="cls-2" x="516.274" y="48.305">NADOR</text>
+    <text id="TANGER" class="cls-2" x="404.274" y="26.305">TANGER</text>
+    <text id="MOHAMMEDIA" class="cls-2" x="318.274" y="90.304">MOHAMMEDIA</text>
+    <text id="CASABLANCA" class="cls-2" x="296.273" y="111.304">CASABLANCA</text>
+    <text id="JORF_LASFAR" data-name="JORF LASFAR" class="cls-2" x="260.274" y="138.304">JORF LASFAR</text>
+    <text id="SAFI" class="cls-2" x="297.274" y="176.304">SAFI</text>
+    <text id="AGADIR" class="cls-2" x="262.273" y="273.304">AGADIR</text>
+    <text id="LAAYOUNE" class="cls-2" x="121.274" y="369.304">LAAYOUNE</text>
+    <text id="DAKHLA" class="cls-2" x="28.274" y="528.304">DAKHLA</text>
+    <use id="localisation" x="572" y="30" xlink:href="#image"/>
+    <use id="localisation_copie" data-name="localisation copie" x="471" y="3" xlink:href="#image"/>
+    <use id="localisation_copie_2" data-name="localisation copie 2" x="427" y="83" xlink:href="#image"/>
+    <use id="localisation_copie_3" data-name="localisation copie 3" x="403" y="97" xlink:href="#image"/>
+    <use id="localisation_copie_4" data-name="localisation copie 4" x="364" y="119" xlink:href="#image"/>
+    <use id="localisation_copie_5" data-name="localisation copie 5" x="338" y="156" xlink:href="#image"/>
+    <use id="localisation_copie_6" data-name="localisation copie 6" x="325" y="250" xlink:href="#image"/>
+    <use id="localisation_copie_7" data-name="localisation copie 7" x="208" y="350" xlink:href="#image"/>
+    <use id="localisation_copie_8" data-name="localisation copie 8" x="92" y="513" xlink:href="#image"/>
+  </g>
+</svg>

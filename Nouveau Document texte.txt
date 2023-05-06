@@ -1,0 +1,59 @@
+composer create-project laravel/laravel profile;
+cd profile;
+php artisan;    
+php artisan serve;
+
+/*
+GET : Lecture
+POST : Ajout
+PUT : Modification complete
+PATCH : modification partielle
+DELETE : supprimer
+*/
+php artisan make:controller UserController
+php artisan migrate (system tables into the database)
+
+route web.php 
+
+vers les ressources views
+
+php artisan make:model Profile -m
+table with the migration users classe and the migration!! un model a toujours 1 ou plus de migrations
+
+
+php artisan db:seed
+php artisan make:seeder profileSeeder
+
+php artisan migrate:fresh --seed
+re lance les migrations a nouveau et puis repertes les seeders
+php artisan make:factory ProfileFactory --model=profile
+php artisan db:seed --class=UserSeeder
+
+
+public function store(Request $request)
+{
+    // Validate the request data
+    $validatedData = $request->validate([
+        'titre' => 'required',
+        'type' => 'required',
+        'landingpage_id' => 'required',
+    ]);
+
+    // Get the maximum order number of blocks that belong to the same landing page
+    $landingpage_id = $validatedData['landingpage_id'];
+    $maxOrderNumber = $this->getMaxOrderNumber($landingpage_id);
+
+    // Create a new block with the validated data and the order number
+    $block = new Block([
+        'titre' => $validatedData['titre'],
+        'type' => $validatedData['type'],
+        'landingpage_id' => $landingpage_id,
+        'ordre' => $maxOrderNumber + 1, // increment the maximum order number by 1
+    ]);
+
+    // Save the new block
+    $block->save();
+
+    // Redirect to the index page with a success message
+    return redirect()->route('indexblock.index', ['landingpage' => $block->landingpage_id])->with('success', 'Le block a été créé avec succès.');
+}
