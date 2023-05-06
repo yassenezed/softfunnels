@@ -1,0 +1,398 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1
+-- Généré le : sam. 06 mai 2023 à 21:45
+-- Version du serveur : 10.4.27-MariaDB
+-- Version de PHP : 8.2.0
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de données : `softfunnel`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `blocks`
+--
+
+CREATE TABLE `blocks` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `titre` varchar(255) DEFAULT NULL,
+  `images` longtext DEFAULT NULL,
+  `settings` longtext DEFAULT NULL,
+  `details` longtext DEFAULT NULL,
+  `type` varchar(255) NOT NULL,
+  `ordre` int(11) NOT NULL,
+  `landingpage_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `blocks`
+--
+
+INSERT INTO `blocks` (`id`, `titre`, `images`, `settings`, `details`, `type`, `ordre`, `landingpage_id`, `created_at`, `updated_at`) VALUES
+(1, '', NULL, NULL, NULL, 'bloque-2', 0, NULL, '2023-04-13 14:42:13', '2023-04-13 14:42:13'),
+(2, '', NULL, NULL, NULL, 'bloque-2', 0, NULL, '2023-04-13 14:43:20', '2023-04-13 14:43:20'),
+(3, '', NULL, NULL, NULL, 'bloque-2', 0, NULL, '2023-04-13 14:47:48', '2023-04-13 14:47:48'),
+(4, '', NULL, NULL, NULL, 'bloque-4', 0, 4, '2023-04-13 14:48:47', '2023-04-13 14:48:47'),
+(5, '', NULL, NULL, NULL, 'bloque-2', 0, 1, '2023-04-13 14:51:55', '2023-04-13 14:51:55'),
+(6, '', NULL, NULL, NULL, 'bloque-2', 0, 1, '2023-04-13 14:52:53', '2023-04-13 14:52:53'),
+(8, '', NULL, NULL, NULL, 'bloque-2', 0, 1, '2023-04-13 14:57:37', '2023-04-13 14:57:37'),
+(9, '', NULL, NULL, NULL, 'bloque-2', 0, 1, '2023-04-13 15:01:18', '2023-04-13 15:01:18'),
+(10, '', NULL, NULL, NULL, 'bloque-1', 0, 23, '2023-04-13 15:14:53', '2023-04-13 15:14:53'),
+(11, '', NULL, NULL, NULL, 'bloque-1', 0, 23, '2023-04-13 15:15:13', '2023-04-13 15:15:13'),
+(12, '', NULL, NULL, NULL, 'bloque-2', 0, 23, '2023-04-13 15:21:40', '2023-04-13 15:21:40'),
+(14, '', NULL, NULL, NULL, 'bloque-1', 0, 1, '2023-04-13 15:39:43', '2023-04-13 15:39:43'),
+(16, '', NULL, NULL, NULL, 'bloque-1', 0, 1, '2023-04-14 11:19:48', '2023-04-14 11:19:48'),
+(20, '', NULL, NULL, NULL, 'bloque-2', 0, 1, '2023-04-14 11:47:42', '2023-04-14 11:47:42'),
+(21, '', '[\"blocks\\/21\\/1681827797_80m538Wku2.png\"]', NULL, '<p>nn</p>', 'type1', 0, 1, '2023-04-14 14:32:47', '2023-04-18 14:23:17'),
+(22, '', '[\"blocks\\/22\\/1681827811_bHMULqeSz1.png\"]', NULL, '<p>n,,n</p>', 'type1', 0, 1, '2023-04-14 14:37:11', '2023-04-18 14:23:31'),
+(23, '', NULL, NULL, NULL, 'type1', 0, 1, '2023-04-14 14:40:05', '2023-04-14 14:40:05'),
+(24, '', NULL, NULL, NULL, 'type1', 0, 1, '2023-04-14 14:41:32', '2023-04-14 14:41:32'),
+(25, '', NULL, NULL, NULL, 'type2', 0, 1, '2023-04-14 14:41:48', '2023-04-14 14:41:48'),
+(26, '', NULL, NULL, NULL, 'type2', 0, 7, '2023-04-14 14:42:26', '2023-04-14 14:42:26'),
+(27, '', NULL, NULL, NULL, 'type1', 0, 7, '2023-04-14 14:42:31', '2023-04-14 14:42:31'),
+(28, '', NULL, NULL, NULL, 'type1', 0, 7, '2023-04-14 14:47:28', '2023-04-14 14:47:28'),
+(29, '', NULL, NULL, NULL, 'type1', 0, 1, '2023-04-14 15:47:35', '2023-04-14 15:47:35'),
+(30, '', NULL, NULL, NULL, 'type1', 0, 1, '2023-04-14 15:47:40', '2023-04-14 15:47:40'),
+(31, '', NULL, NULL, NULL, 'type2', 0, 1, '2023-04-14 15:47:47', '2023-04-14 15:47:47'),
+(33, '', NULL, NULL, NULL, 'type1', 0, 24, '2023-04-14 17:36:12', '2023-04-14 17:36:12'),
+(37, '', NULL, NULL, NULL, 'type1', 0, 11, '2023-04-15 13:18:04', '2023-04-15 13:18:04'),
+(38, '', NULL, NULL, NULL, 'type2', 0, 11, '2023-04-15 13:18:08', '2023-04-15 13:18:08'),
+(39, '', NULL, NULL, NULL, 'type1', 0, 11, '2023-04-15 13:18:12', '2023-04-15 13:18:12'),
+(41, '', NULL, NULL, NULL, 'type2', 0, 11, '2023-04-15 13:18:20', '2023-04-15 13:18:20'),
+(42, '', NULL, NULL, NULL, 'type1', 0, 11, '2023-04-15 13:18:36', '2023-04-15 13:18:36'),
+(43, '', NULL, NULL, NULL, 'type1', 0, 11, '2023-04-15 13:18:49', '2023-04-15 13:18:49'),
+(44, '', NULL, NULL, NULL, 'type2', 0, 11, '2023-04-15 13:18:54', '2023-04-15 13:18:54'),
+(45, '', NULL, NULL, NULL, 'type2', 0, 11, '2023-04-15 13:18:59', '2023-04-15 13:18:59'),
+(46, '', NULL, NULL, NULL, 'type1', 0, 1, '2023-04-15 13:19:53', '2023-04-15 13:19:53'),
+(47, '', NULL, NULL, NULL, 'type2', 0, 1, '2023-04-15 13:21:09', '2023-04-15 13:21:09'),
+(48, '', NULL, NULL, NULL, 'type1', 0, 1, '2023-04-15 13:21:20', '2023-04-15 13:21:20'),
+(49, '', NULL, NULL, NULL, 'type2', 0, 1, '2023-04-15 13:23:48', '2023-04-15 13:23:48'),
+(50, '', NULL, NULL, NULL, 'type1', 0, 5, '2023-04-15 13:24:35', '2023-04-15 13:24:35'),
+(51, '', '[\"blocks\\/51\\/1681744328_vWGK8CsIc3.png\",\"blocks\\/51\\/1681744328_8vzYmhvx8I.png\"]', NULL, '<p>daz</p>', 'type1', 0, 1, '2023-04-15 13:25:10', '2023-04-17 15:12:08'),
+(52, '', NULL, NULL, NULL, 'type2', 0, 1, '2023-04-15 13:29:24', '2023-04-15 13:29:24'),
+(53, '', NULL, NULL, NULL, 'type2', 0, 1, '2023-04-15 13:29:31', '2023-04-15 13:29:31'),
+(59, '', NULL, NULL, NULL, 'type1', 0, 25, '2023-04-16 14:20:40', '2023-04-16 14:20:40'),
+(60, '', NULL, NULL, NULL, 'type1', 0, 26, '2023-04-16 17:46:10', '2023-04-16 17:46:10'),
+(61, '', NULL, NULL, NULL, 'type1', 0, 26, '2023-04-17 10:37:05', '2023-04-17 10:37:05'),
+(62, '', NULL, NULL, NULL, 'type1', 0, 26, '2023-04-17 10:37:21', '2023-04-17 10:37:21'),
+(65, 'Qui Somme-nous', NULL, NULL, NULL, 'type1', 1, 3, '2023-04-19 10:10:52', '2023-04-19 10:10:52'),
+(66, 'Nos Packs', NULL, NULL, NULL, 'type2', 2, 3, '2023-04-19 10:11:05', '2023-04-19 10:11:05'),
+(67, 'adzdza', NULL, NULL, NULL, 'type1', 23, 1, '2023-04-19 10:11:28', '2023-04-19 10:11:28'),
+(68, 'PC', NULL, NULL, NULL, 'type1', 24, 1, '2023-04-19 10:23:30', '2023-04-19 10:23:30'),
+(69, 'adzzda', NULL, NULL, NULL, 'type1', 25, 1, '2023-04-19 10:24:30', '2023-04-19 10:24:30'),
+(70, 'testazd', NULL, NULL, NULL, 'type2', 26, 1, '2023-04-19 10:59:24', '2023-04-19 10:59:24'),
+(71, 'Qui Somme-nous', '[\"blocks\\/71\\/1681904803_gHOS1VrEdI.png\"]', NULL, '<h2><span style=\"background-color: rgb(255, 255, 0); color: rgb(255, 0, 0);\">This one is type 1 left text</span><br><br></h2>', 'type1', 1, 28, '2023-04-19 11:12:34', '2023-04-19 11:46:43'),
+(72, 'Les prix', '[\"blocks\\/72\\/1681914679_TV2ixEsuBU.png\"]', NULL, '<h2><span style=\"background-color: rgb(255, 255, 0); color: rgb(255, 0, 0);\">this one is image left</span></h2>\r\n<h2>&nbsp;</h2>', 'type2', 2, 28, '2023-04-19 11:12:42', '2023-04-19 14:31:19'),
+(75, 'pack', '[\"blocks\\/75\\/1681984336_cju8LfHrpJ.png\",\"blocks\\/75\\/1681984342_jkZSR7lkkj.png\"]', NULL, '<p>azza</p>', 'type1', 1, 29, '2023-04-20 09:51:39', '2023-04-20 09:52:22'),
+(77, 'dza', '[\"blocks\\/77\\/1681997753_aF1c3pNEOT.png\",\"blocks\\/77\\/1681997757_aM5XGYi8jk.png\",\"blocks\\/77\\/1681999574_vlk42uCTF6.png\",\"blocks\\/77\\/1681999574_KTTki3kjIF.png\"]', NULL, '<p>az</p>', 'type1', 1, 30, '2023-04-20 10:25:13', '2023-04-20 14:06:14'),
+(78, 'adzdza', '[\"blocks\\/78\\/1682000681_uCdU3LBoUQ.png\"]', NULL, NULL, 'caroussel', 1, 31, '2023-04-20 14:18:14', '2023-04-20 14:39:33'),
+(79, 'caroussel', '[\"blocks\\/79\\/1682002040_iK0lz9SCDR.png\",\"blocks\\/79\\/1682002040_xoboNzFreh.png\",\"blocks\\/79\\/1682002993_N9s8vtB3Uh.png\",\"blocks\\/79\\/1682002993_sq43kidGCG.png\"]', NULL, NULL, 'caroussel', 1, 32, '2023-04-20 14:47:03', '2023-04-20 15:03:13'),
+(80, 'dazdaz', NULL, NULL, NULL, 'type1', 2, 32, '2023-04-20 15:02:55', '2023-04-20 15:02:55'),
+(81, 'dza', '[\"blocks\\/81\\/1682003430_sXgVxkPJGl.png\",\"blocks\\/81\\/1682003430_mXvzzaa7xg.png\",\"blocks\\/81\\/1682003472_TriJZmUrOS.png\",\"blocks\\/81\\/1682003472_7x2pZSq1jH.png\"]', NULL, NULL, 'type2', 2, 31, '2023-04-20 15:10:15', '2023-04-20 15:11:12'),
+(92, 'hey', NULL, NULL, '{\"1\":{\"text\":\"dddddddd\",\"q\":\"ddd\"}}', 'faq', 1, 34, '2023-04-27 08:43:19', '2023-04-27 08:52:40'),
+(106, 'www', NULL, NULL, '[{\"text\":\"alo\",\"q\":\"alo\"},{\"text\":\"ww\",\"q\":\"ww\"}]', 'faq', 1, 36, '2023-04-27 10:43:38', '2023-04-27 10:44:03'),
+(107, 'wii', NULL, NULL, '[{\"text\":\"e\",\"q\":\"e\"}]', 'faq', 2, 36, '2023-04-27 10:44:24', '2023-04-27 10:44:53'),
+(109, 'adz', NULL, NULL, '[{\"text\":\"Ecrivez votre question ici ss\",\"q\":\"Ecrivez votre reponse ici ss\"}]', 'faq', 3, 36, '2023-04-27 10:48:52', '2023-04-27 10:49:02'),
+(114, 'zadddddddddd', NULL, NULL, '{\"1\":{\"text\":\"daddazd\",\"q\":\"dadzdza\"}}', 'faq', 4, 36, '2023-04-27 10:59:19', '2023-04-27 11:00:39'),
+(127, 'reg', NULL, NULL, '[{\"text\":null,\"q\":null}]', 'faq', 1, 38, '2023-04-27 12:56:38', '2023-04-27 12:56:51'),
+(128, 'adzdzadz', NULL, NULL, NULL, 'faq', 2, 38, '2023-04-27 12:58:39', '2023-04-27 13:13:00'),
+(129, 'faq', NULL, NULL, '[{\"text\":\"hello\",\"q\":\"oui\"},{\"text\":\"hello\",\"q\":\"oui\"},{\"text\":\"hello\",\"q\":\"ouais\"}]', 'faq', 1, 39, '2023-05-01 20:09:11', '2023-05-01 20:09:27'),
+(130, 'Yow', '[\"blocks\\/130\\/1682977126_2kksPt75Ur.jpg\"]', NULL, '<div class=\"faq\">\r\n<div class=\"faq-item\">\r\n<h3 class=\"faq-question\">addad</h3>\r\n</div>\r\n</div>', 'type1', 2, 39, '2023-05-01 20:38:20', '2023-05-01 20:38:46'),
+(131, 'xw', '[\"blocks\\/131\\/1682977322_uMJgINg2jA.jpg\"]', NULL, '<p>oyowvdsvsdvs</p>', 'type2', 3, 39, '2023-05-01 20:40:25', '2023-05-01 20:42:14'),
+(133, 'Caroussel', '[\"blocks\\/133\\/1683029437_SnJRpVQONi.jpg\",\"blocks\\/133\\/1683029437_siTR2vWBWL.jpg\",\"blocks\\/133\\/1683029437_N7czLDQlD8.jpg\"]', NULL, NULL, 'caroussel', 4, 28, '2023-05-02 11:10:12', '2023-05-02 11:10:37'),
+(135, 'faq', NULL, NULL, '[{\"text\":\"zdadzad\",\"q\":\"azdzadza\"},{\"text\":\"zdadazadz\",\"q\":\"zdaazd\"}]', 'faq', 6, 28, '2023-05-02 11:14:27', '2023-05-02 11:16:21'),
+(136, 'adzdza', '[\"blocks\\/136\\/1683214907_QI1xYL6jGS.jpg\"]', NULL, '<h2 class=\"h3\">We always welcome keen to learn folks to our team</h2>\r\n<p>The time has come to bring those ideas and plans to life. This is where we really begin to visualize your napkin sketches and make them into beautiful pixels.</p>\r\n<p>Now that your brand is all dressed up and ready to party, it\'s time to release it to the world. By the way, let\'s celebrate already.</p>', 'type1', 1, 40, '2023-05-02 11:23:14', '2023-05-04 14:41:47'),
+(137, 'Type2', '[\"blocks\\/137\\/1683033814_LbvxWwdtqB.jpg\"]', NULL, '<h2 class=\"h3\">See what the community have to say about Space</h2>\r\n<p>We are incredibly impressed with Space and how well it supports its customers with amazing products and services. One simple subscription gives you access to all our tools, plus so much more.</p>', 'type2', 2, 40, '2023-05-02 12:22:51', '2023-05-02 12:23:34'),
+(138, 'ww', '[\"blocks\\/138\\/1683034283_3lpb71FdrL.jpg\",\"blocks\\/138\\/1683034283_jaRuymhAB0.jpg\"]', NULL, NULL, 'caroussel', 3, 40, '2023-05-02 12:24:15', '2023-05-02 12:31:23'),
+(152, 'yow', NULL, NULL, '[{\"text\":\"caca\",\"q\":\"cacaca\",\"img\":\"iconplustext\\/152\\/1683312176_mQ4sjSuoTM.png\"},{\"text\":\"caac\",\"q\":\"accaca\",\"img\":\"iconplustext\\/152\\/1683310442_q8JQ9SCNSH.png\"},{\"text\":\"caac\",\"q\":\"caca\",\"img\":\"iconplustext\\/152\\/1683311567_Wpagkcm1QW.png\"}]', 'iconplustext', 4, 40, '2023-05-05 17:00:28', '2023-05-05 17:42:56');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `failed_jobs`
+--
+
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `uuid` varchar(255) NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `landingpages`
+--
+
+CREATE TABLE `landingpages` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `titre` text NOT NULL,
+  `description` text NOT NULL,
+  `state` varchar(255) DEFAULT 'Active',
+  `slug` varchar(255) DEFAULT NULL,
+  `visitors` varchar(255) DEFAULT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `landingpages`
+--
+
+INSERT INTO `landingpages` (`id`, `titre`, `description`, `state`, `slug`, `visitors`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 'efzfze', 'ezfzef', NULL, NULL, NULL, NULL, '2023-04-12 14:03:40', '2023-04-12 14:03:40'),
+(3, 'adzdzazd', 'dzaazd', NULL, '/hello-slug', NULL, NULL, '2023-04-12 14:07:05', '2023-04-12 14:07:05'),
+(4, 'fzafz', 'afzfza', 'Active', 'afzzaf', NULL, NULL, '2023-04-12 14:15:58', '2023-04-12 14:15:58'),
+(5, 'dazd', 'zdazda', 'Active', 'dzazad', NULL, NULL, '2023-04-12 14:24:43', '2023-04-12 14:24:43'),
+(6, 'zdazda', 'dzzad', 'Active', 'dazdza', NULL, NULL, '2023-04-12 14:24:50', '2023-04-12 14:24:50'),
+(7, 'dzaadz', 'zdazdazda', 'Active', 'dzadzazda', NULL, NULL, '2023-04-12 14:26:10', '2023-04-12 14:26:10'),
+(8, 'rzarza', 'rzazra', 'inactive', 'rzaarz', NULL, NULL, '2023-04-12 14:27:31', '2023-04-12 14:27:31'),
+(9, 'zfazfa', 'fzafa', 'inactive', 'zfafza', NULL, NULL, '2023-04-12 14:27:40', '2023-04-12 14:27:40'),
+(11, 'zdadzscqqq', 'csqqqqqqqq', 'Active', 'scqqqqqqqqqq', NULL, NULL, '2023-04-12 14:30:07', '2023-04-13 10:03:12'),
+(15, 'dzazddza', 'dzazdazadzd', 'Active', 'zdadzazad', NULL, NULL, '2023-04-12 14:34:41', '2023-04-12 14:34:41'),
+(20, 'dazdzadz', 'zadzddzazd', 'Active', 'zdazdazdazd', NULL, NULL, '2023-04-13 10:13:46', '2023-04-13 10:13:46'),
+(22, 'souris', 'cette land', 'Inactive', '/souris-test', NULL, NULL, '2023-04-13 12:49:58', '2023-04-13 12:50:14'),
+(23, 'adzdza', 'dzadza', 'Active', 'dzadz', NULL, NULL, '2023-04-13 14:04:38', '2023-04-13 14:04:38'),
+(24, 'Calculatrice', 'landnig page pour ma calulatrice', 'Active', '/calcul', NULL, NULL, '2023-04-14 17:36:00', '2023-04-14 17:36:00'),
+(25, 'segzze', 'gezgzezeg', 'Active', '/reh', NULL, NULL, '2023-04-16 14:20:25', '2023-04-16 14:20:25'),
+(26, 'ezfze', 'ezffez', 'Active', 'ezffze', NULL, NULL, '2023-04-16 17:45:59', '2023-04-16 17:45:59'),
+(28, 'NewlyNew', 'ABTESTING', 'Active', '/ABTESTING', NULL, NULL, '2023-04-19 11:12:19', '2023-04-19 11:12:19'),
+(29, 'PCC', 'PCC', 'Active', 'PCC', NULL, NULL, '2023-04-20 09:51:28', '2023-04-20 09:51:28'),
+(30, 'test', 'tetet', 'Inactive', 'etet', NULL, NULL, '2023-04-20 10:08:12', '2023-04-20 10:08:12'),
+(31, 'adzzazdda', 'tezez', 'Active', 'tezet', NULL, NULL, '2023-04-20 14:11:53', '2023-04-20 14:11:53'),
+(32, 'new test', 'testing', 'Active', 'slugging', NULL, NULL, '2023-04-20 14:46:48', '2023-04-27 10:17:51'),
+(33, 'dz', 'dzdz', 'Active', 'dzdz', NULL, NULL, '2023-04-24 20:40:58', '2023-04-24 20:40:58'),
+(34, 'Hello', 'Wach', 'Active', 'slugging', NULL, NULL, '2023-04-25 07:56:56', '2023-04-25 07:56:56'),
+(35, 'zda', 'dza', 'Active', 'adz', NULL, NULL, '2023-04-27 08:26:04', '2023-04-27 08:26:04'),
+(36, 'wwwwww', 'www', 'Active', 'wwww', NULL, NULL, '2023-04-27 10:43:30', '2023-04-27 10:43:30'),
+(37, 'fzefeefzfezefz', 'efzefzefefz', 'Active', 'efzefzfezezff', NULL, NULL, '2023-04-27 12:52:35', '2023-04-27 12:52:35'),
+(38, 'gre', 'gegrgeg', 'Active', 'gre', NULL, NULL, '2023-04-27 12:56:29', '2023-04-27 12:56:29'),
+(39, 'Holla', 'testing faq', 'Active', 'faqs', NULL, NULL, '2023-05-01 20:09:00', '2023-05-01 20:09:00'),
+(40, 'PreviewTest', 'PreviewTest', 'Active', 'PreviewTest', NULL, NULL, '2023-05-02 11:16:56', '2023-05-02 11:16:56');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(5, '2023_04_11_124144_add_username_to_users_table', 1),
+(36, '2023_04_12_114629_create_lp_table', 5),
+(37, '2023_04_12_115533_create_lp_table', 6),
+(38, '2023_04_12_115755_add_description_to_lp_table', 7),
+(47, '2023_04_12_130907_create_lp_table', 9),
+(54, '2023_04_12_115820_add_description_to_lp_table', 10),
+(55, '2014_10_12_000000_create_users_table', 11),
+(56, '2014_10_12_100000_create_password_reset_tokens_table', 11),
+(57, '2019_08_19_000000_create_failed_jobs_table', 11),
+(58, '2019_12_14_000001_create_personal_access_tokens_table', 11),
+(59, '2023_04_11_143400_drop_name_from_users_table', 11),
+(60, '2023_04_11_144021_add_somefields_to_users_table', 11),
+(61, '2023_04_12_135855_create_lp_table', 11),
+(62, '2023_04_12_140100_add_time_to_lp_table', 12),
+(64, '2023_04_13_104430_create_blocks_table', 13),
+(65, '2023_04_13_115542_add_ordre_to_table', 14),
+(69, '2023_04_13_115832_add_ordre_to_table', 15),
+(70, '2023_04_19_095331_add_titre_to_blocks_table', 16);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `password_reset_tokens`
+--
+
+CREATE TABLE `password_reset_tokens` (
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `personal_access_tokens`
+--
+
+CREATE TABLE `personal_access_tokens` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tokenable_type` varchar(255) NOT NULL,
+  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `abilities` text DEFAULT NULL,
+  `last_used_at` timestamp NULL DEFAULT NULL,
+  `expires_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `firstname` varchar(255) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'dzzad', 'aeze', 'zeazae', 'zaid.y.fst@uhp.ac.ma', NULL, '$2y$10$RIOEtIQt4a4zS.BTkJiU1eo5CyxXQESWcXm07oOXNHBfQQRBURI3S', NULL, '2023-04-12 14:00:14', '2023-04-12 14:00:14'),
+(2, 'dzadza', 'dzadaz', 'dzaazd', 'zaid.y.fszt@uhp.ac.mac', NULL, '$2y$10$FwrIhBgwq7NI8eecVBExZuNy9Ir.YhLUspoHGZL4JjORrBvJZ.i6q', NULL, '2023-04-13 12:22:49', '2023-04-13 12:22:49');
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `blocks`
+--
+ALTER TABLE `blocks`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `blocks_landingpage_id_foreign` (`landingpage_id`);
+
+--
+-- Index pour la table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Index pour la table `landingpages`
+--
+ALTER TABLE `landingpages`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `landingpages_user_id_foreign` (`user_id`);
+
+--
+-- Index pour la table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `password_reset_tokens`
+--
+ALTER TABLE `password_reset_tokens`
+  ADD PRIMARY KEY (`email`);
+
+--
+-- Index pour la table `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
+
+--
+-- Index pour la table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `blocks`
+--
+ALTER TABLE `blocks`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
+
+--
+-- AUTO_INCREMENT pour la table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `landingpages`
+--
+ALTER TABLE `landingpages`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
+--
+-- AUTO_INCREMENT pour la table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+
+--
+-- AUTO_INCREMENT pour la table `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `blocks`
+--
+ALTER TABLE `blocks`
+  ADD CONSTRAINT `blocks_landingpage_id_foreign` FOREIGN KEY (`landingpage_id`) REFERENCES `landingpages` (`id`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `landingpages`
+--
+ALTER TABLE `landingpages`
+  ADD CONSTRAINT `landingpages_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
