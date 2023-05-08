@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 class IconPlusTextController extends Controller
 {
-   
+
     public function store(Request $request, $id)
     {
         // dd($request->all());
@@ -32,7 +32,7 @@ class IconPlusTextController extends Controller
             $text = $detail['text'];
             $q = $detail['q'];
             $imagePath = null;
-        
+
             if (isset($request->file('details')[$index]['img'])) {
                 $image = $request->file('details')[$index]['img'];
                 $path = 'iconplustext/'.$id;
@@ -41,61 +41,62 @@ class IconPlusTextController extends Controller
             } elseif (isset(json_decode($block->details)[$index]->img)) {
                 $imagePath = json_decode($block->details)[$index]->img;
             }
-        
+
             $details[] = [
                 'text' => $text,
                 'q' => $q,
                 'img' => $imagePath
             ];
         }
-        
-        
-        
+
+
+
         // store the details as a JSON string in your database
         $block->details = json_encode($details);
         // dd($block->details);
         $block->save();
-            
-    
+
+
 
         return redirect()->back();
 
         // store $detailsJson in your database
 
-    
+
     }
     public function removeimagedetails(Request $request, $id)
     {
-        $image_id = $request->get("image_id");
-        // dd($image_id);
+        $detail_id = $request->get("image_id");
 
         // find Block
         $block = Block::findOrFail($id);
 
         // convert image String to Array collection
-        $images = collect(json_decode($block->details));
-        // dd($images);
+        $details = collect(json_decode($block->details));
 
-        // check if image index exists
-        if (!isset($images[$image_id])) return abort(404);
+        // check if detail index exists
+        if (!isset($details[$detail_id])) return abort(404);
 
-        $image = $images[$image_id];
-        $image['img'] = '';
-        // remove from server
-        if (Storage::disk('public')->exists($image)) {
-            Storage::disk('public')->delete($image);
+        // $detail_id = 0
+        // $details = [ [ 'text' => '', 'q' => '', 'img' => '' ], [ 'text' => '', 'q' => '', 'img' => '' ], [ 'text' => '', 'q' => '', 'img' => '' ] ]
+        // $details[$detail_id] = [ 'text' => 'dsfsdf s', 'q' => 'fsdfs fsd f', 'img' => 'sdfsdf.png' ]
+
+        // remove image from server
+        if (Storage::disk('public')->exists($details[$detail_id]->img)) {
+            Storage::disk('public')->delete($details[$detail_id]->img);
         }
-        // remove Image from block row 
-        $images->splice($image_id, 1);
-        
-        dd($images);
+
+        // $details[$detail_id] = [ 'text' => 'dsfsdf s', 'q' => 'fsdfs fsd f', 'img' => '' ]
+
+        // remove Image from block row
+        $details[$detail_id]->img = '';
 
         // update to database
-        $block->details = json_encode($images);
+        $block->details = json_encode($details);
         $block->save();
 
         return 'success';
     }
 
-    
+
 }

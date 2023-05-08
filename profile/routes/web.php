@@ -90,7 +90,7 @@ Route::get('/al/{nom}/{prenom}', function (Request $request) {
            'nom' => $request->nom,
            'prenom' => $request->prenom
     ]);
-    
+
 });
 Route::get('/cookie/get',function(Request $request){
     return ($request->cookie('age'));
@@ -122,7 +122,7 @@ function decodePR($string) {
 function encodePR($string)
 {
     $string_encode = '';
-    for ($i=0; $i < strlen($string); $i++) { 
+    for ($i=0; $i < strlen($string); $i++) {
         $string_encode .=  str_pad(intval(mb_ord($string[$i]) - 1), 7, "0", STR_PAD_LEFT);
     }
     return $string_encode;
