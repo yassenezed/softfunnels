@@ -97,6 +97,31 @@
                     <img class="img-fluid" src="{{ asset('img/typesof/iconplustext.png') }}" alt="faq" width="90" height="90"> 
                   </label>
                 </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="type" value="video" id="video">
+                  <label class="form-check-label" for="video">
+                    <img class="img-fluid" src="{{ asset('img/typesof/video.png') }}" alt="video" width="90" height="90"> 
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="type" value="pack" id="pack">
+                  <label class="form-check-label" for="pack">
+                    <img class="img-fluid" src="{{ asset('img/typesof/pack.png') }}" alt="pack" width="90" height="90"> 
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="type" value="trust" id="trust">
+                  <label class="form-check-label" for="trust">
+                    <img class="img-fluid" src="{{ asset('img/typesof/trust.png') }}" alt="pack" width="90" height="90"> 
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="type" value="reviews" id="reviews">
+                  <label class="form-check-label" for="reviews">
+                    <img class="img-fluid" src="{{ asset('img/typesof/reviews.png') }}" alt="pack" width="90" height="90"> 
+                  </label>
+                </div>
+
 
                 {{-- <select class="form-control" id="blockType" name="blockType">
                     <option value="">-- Choisir un type de bloc --</option>

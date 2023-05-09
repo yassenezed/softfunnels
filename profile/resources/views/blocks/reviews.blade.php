@@ -43,7 +43,7 @@
         <div class="card mb-3 question-container">
             <div class="card-body">
                 <div class="mb-3">
-                    <label for="imgid" class="form-label h4">Choisir une image {{ $index + 1 }}</label>
+                    <label for="imgid" class="form-label h4">Review {{ $index + 1 }}</label>
                     <input type="file" class="form-control" name="details[{{ $index }}][img]" id="imgid" placeholder="">
                     @if ($detail['img'])
                     <div class="col-md-3" id="imgId{{$index}}">

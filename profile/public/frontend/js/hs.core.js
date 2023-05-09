@@ -19,7 +19,7 @@
      * @return
      */
     init: function () {
-
+      
       $(document).ready(function (e) {
         // Botostrap Tootltips
         $('[data-toggle="tooltip"]').tooltip();

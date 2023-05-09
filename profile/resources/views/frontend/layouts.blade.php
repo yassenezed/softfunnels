@@ -47,7 +47,7 @@
   </main>
   <!-- ========== END MAIN CONTENT ========== -->
 
-  <!-- ========== FOOTER ========== -->
+  {{-- <!-- ========== FOOTER ========== -->
   <footer class="bg-dark">
     <div class="container space-2">
       <div class="row justify-content-md-between">
@@ -210,7 +210,7 @@
       </div>
     </div>
   </footer>
-  <!-- ========== END FOOTER ========== -->
+  <!-- ========== END FOOTER ========== --> --}}
 
 
   <!-- Go to Top -->
@@ -318,6 +318,6 @@
     });
   </script>
   
-  @include('partials.js')
+  {{-- @include('partials.js') --}}
 </body>
 </html>

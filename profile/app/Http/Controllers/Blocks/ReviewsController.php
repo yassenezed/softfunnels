@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
-class IconPlusTextController extends Controller
+class ReviewsController extends Controller
 {
 
     public function store(Request $request, $id)

@@ -24,7 +24,7 @@
     }
 
     @endphp
-    @if ($errors->any())
+    {{-- @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -32,25 +32,31 @@
                 @endforeach
             </ul>
         </div>
-    @endif
+    @endif --}}
 
     <div id="questions-container">
         @foreach($details as $key => $detail)
         <div class="card mb-3 question-container">
             <div class="card-body">
                 <div class="form-group mb-2">
-                    <label for="" class="form-label">Question :</label>
-                    <input type="text" name="details[{{ $key }}][text]" class="form-control question-input" value="{{ $detail['text'] }}">
+                    <label for="details[{{ $key }}][text]"  class="form-label">Question :</label>
+                    <input type="text" name="details[{{ $key }}][text]" id="details[{{$key}}][text]" class="form-control question-input" value="{{ $detail['text'] }}">
                 </div>
-                
+                @if ($errors->has("details.$key.text"))
+                    <span class="text-danger">{{ $errors->first("details.$key.text") }}</span>
+                @endif
                 <div class="form-group mb-2">
                     <label for="">Reponse : </label>
                     <textarea name="details[{{ $key }}][q]" class="form-control answer-input">{{ $detail['q'] }}</textarea>
                 </div>
+                @if ($errors->has("details.$key.q"))
+                    <span class="text-danger">{{ $errors->first("details.$key.q") }}</span>
+                @endif
                 <button type="button" class="btn btn-danger delete-question-btn" onclick="deleteQuestion(this)">Delete</button>
             </div>
         </div>
-        @endforeach
+    @endforeach
+    
     </div>
     <button class="btn btn-primary" type="submit">Enregistrer</button>
     <button class="btn btn-success" type="button" onclick="addQuestion()">Ajouter une question</button>

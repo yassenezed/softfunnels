@@ -17735,6 +17735,14 @@ button:focus {
   }
 }
 
+@media (max-width: 778px) {
+  .card-sm-columns{
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
 @media (min-width: 768px) {
   .card-md-2-count {
     -webkit-column-count: 2;
