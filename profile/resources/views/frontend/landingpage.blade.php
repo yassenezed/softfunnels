@@ -51,6 +51,11 @@
             @include('frontend.blocks.reviews', compact('block'))
         @endif
       </div>
+      <div class="row">
+        @if ($block->type == "form")
+            @include('frontend.blocks.form', compact('block', "landingpage"))
+        @endif
+      </div>
     @endforeach
 
 @endsection

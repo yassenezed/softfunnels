@@ -35,7 +35,7 @@ class ReviewsController extends Controller
 
             if (isset($request->file('details')[$index]['img'])) {
                 $image = $request->file('details')[$index]['img'];
-                $path = 'iconplustext/'.$id;
+                $path = 'reviews/'.$id;
                 $name = time() . '_' . Str::random(10) . '.' . $image->getClientOriginalExtension();
                 $imagePath = $image->storeAs($path, $name, 'public');
             } elseif (isset(json_decode($block->details)[$index]->img)) {

@@ -43,10 +43,11 @@
         <div class="card mb-3 question-container">
             <div class="card-body">
                 <div class="mb-3">
-                    <label for="imgid" class="form-label h4">Review {{ $index + 1 }}</label>
+                    <label for="imgid" class="form-label h4">Choisir l'image de l'avis {{ $index + 1 }}</label>
                     <input type="file" class="form-control" name="details[{{ $index }}][img]" id="imgid" placeholder="">
                     @if ($detail['img'])
                     <div class="col-md-3" id="imgId{{$index}}">
+                        <br>
                     <div class="image-container" style="position: relative;">
                         <img src="{{ Storage::url($detail["img"]) }}" alt="Image">
                         <button class="btn btn-danger remove-btn" style="position: absolute;
@@ -60,12 +61,12 @@
                 </div>
 
                 <div class="form-group mb-2">
-                    <label for="" class="form-label">Titre {{ $index + 1 }} :</label>
+                    <label for="" class="form-label">Texte de l'avis {{ $index + 1 }} :</label>
                     <input type="text" name="details[{{ $index }}][text]" class="form-control question-input" value="{{ $detail['text'] }}">
                 </div>
 
                 <div class="form-group mb-2">
-                    <label for="">Texte Normale {{ $index + 1 }} : </label>
+                    <label for="">Nom du Reviewer {{ $index + 1 }} : </label>
                     <textarea name="details[{{ $index }}][q]" class="form-control answer-input">{{ $detail['q'] }}</textarea>
                 </div>
             </div>

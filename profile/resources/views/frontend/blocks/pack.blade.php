@@ -26,7 +26,6 @@ $details = $block->titre;
         <header class="card-header text-center p-5">
           <span class="u-label u-label--sm u-label--purple mb-3">{{ $detail['titre'] }}
           </span>
-
           <span class="d-block">
             <span class="display-4 text-dark">
               {{ $detail['text'] }}

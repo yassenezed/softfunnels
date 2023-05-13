@@ -12,38 +12,86 @@
                 <div class="row g-4">
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-line fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Today Sale</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-xl-3">
-                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                            @php
+
+                                            $user_id = session()->get('user_id');
+                                            $user = \App\Models\User::where('email', $user_id)->first();
+                                            $landingpages = \App\Models\Landingpage::where('user_id', $user->id)->get();
+                                            // dd( $landingpages);                                            
+                                            // Retrieve the forms related to each landing page ID of the user
+                                            $forms = collect();
+                                            $totalVisits=0;
+                                            foreach ($landingpages as $landingpage) {
+                                                $totalVisits += $landingpage->visitors;
+                                            }
+
+                            @endphp
+
                             <div class="ms-3">
-                                <p class="mb-2">Total Sale</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">Total des Visites</p>
+                                <h6 class="mb-0">{{ $totalVisits }} Visites</h6>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-area fa-3x text-primary"></i>
+                            @php
+                                            $user_id = session()->get('user_id');
+                                            $user = \App\Models\User::where('email', $user_id)->first();
+                                            $landingpages = \App\Models\Landingpage::where('user_id', $user->id)->get();
+
+                                            // Retrieve the forms related to each landing page ID of the user
+                                            $forms = collect();
+                                            foreach ($landingpages as $landingpage) {
+                                                $landingpage_id = $landingpage->id;
+                                                $landingpage_price = $landingpage->price;
+                                                $forms = $forms->merge(\App\Models\Form::where('landing_page_id', $landingpage_id)
+                                                    ->whereDate('created_at', \Carbon\Carbon::today()) // filter forms created today
+                                                    ->get());
+                                            }
+
+                                            // Calculate the total sales
+                                            $totalSales = 0;
+                                            foreach ($forms as $form) {
+                                                $price = $form->landingpage->price;
+                                                $totalSales += $price;
+                                            }
+                                @endphp
                             <div class="ms-3">
-                                <p class="mb-2">Today Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">Revenue Du Jour</p>
+                                <h6 class="mb-0">{{$totalSales}} MAD</h6>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-pie fa-3x text-primary"></i>
-                            <div class="ms-3">
-                                <p class="mb-2">Total Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
-                            </div>
+                            @php
+                                            $user_id = session()->get('user_id');
+                                            $user = \App\Models\User::where('email', $user_id)->first();
+                                            $landingpages = \App\Models\Landingpage::where('user_id', $user->id)->get();
+
+                                            // Retrieve the forms related to each landing page ID of the user
+                                            $forms = collect();
+                                            $totalSales = 0;
+                                            foreach ($landingpages as $landingpage) {
+                                                $landingpage_id = $landingpage->id;
+                                                $forms = $forms->merge(\App\Models\Form::where('landing_page_id', $landingpage_id)->get());
+                                            }
+
+                                            // Calculate the total sales
+                                            foreach ($forms as $form) {
+                                                $price = $form->landingpage->price;
+                                                $totalSales += $price;
+                                            }
+                                @endphp
+
+                                <div class="ms-3">
+                                    <p class="mb-2">Total des Ventes</p>
+                                    <h6 class="mb-0">{{ $totalSales }} MAD</h6>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -51,7 +99,7 @@
             <!-- Sale & Revenue End -->
 
 
-            <!-- Sales Chart Start -->
+            {{-- <!-- Sales Chart Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
                     <div class="col-sm-12 col-xl-6">
@@ -74,7 +122,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Sales Chart End -->
+            <!-- Sales Chart End --> --}}
 
 
             <!-- Recent Sales Start -->
@@ -150,7 +198,7 @@
             </div>
             <!-- Recent Sales End -->
 
-
+{{-- 
             <!-- Widgets Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
@@ -270,7 +318,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Widgets End -->
+            <!-- Widgets End --> --}}
 @include('partials.newfooter');
 @include('partials.js')
 </body>

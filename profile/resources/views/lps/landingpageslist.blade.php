@@ -15,6 +15,8 @@
         <th>Description</th>
         <th>Lien</th>
         <th>Etat</th>
+        <th>Nombre des Visiteurs</th>
+        <th>Prix</th>
         <th colspan="4" class="text-center">Les Actions</th>
      </tr>
     @foreach ($landingpages as $lp)
@@ -25,6 +27,8 @@
          <td>{{ Str::limit($lp->description,50) }}</td>
          <td>{{$lp->slug}}</td>
          <td>{{$lp->state}}</td>
+         <td>{{$lp->visitors}}</td>
+         <td>{{$lp->price}}MAD</td>
 
          <td>
             <div>

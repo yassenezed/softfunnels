@@ -39,6 +39,15 @@
         </div>
   @enderror
   <div class="form-group mb-3">
+    <label for="slug">Prix</label>
+    <input type="text" value="{{$landingpages->price}}" class="form-control" id="price" name="price" placeholder="Saisissez le Prix">
+</div>
+@error('price')
+      <div class="text-danger">
+        {{$message}}
+      </div>
+@enderror
+  <div class="form-group mb-3">
     <label for="state">État : </label>
     <select name="state" value="{{$landingpages->state}}">
       <option value="Active">Active</option>

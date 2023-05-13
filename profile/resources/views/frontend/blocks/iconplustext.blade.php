@@ -8,12 +8,10 @@
                     <img src="{{ asset('storage/'.$detail["img"]) }}" alt="Image">
                     <h3>{{ $detail['text'] }}</h3>
                     <p>{{ $detail['q'] }}</p>
-                    <!-- End Icon Blocks -->
-                  </div>
+                <!-- End Icon Blocks -->
+                </div>
             </div>
             @endforeach 
-       
-        
     </div>
 </div>
 @endif

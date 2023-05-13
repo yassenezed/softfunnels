@@ -17,18 +17,24 @@ class updateController extends Controller
         $titre = $request->titre;
         $description = $request->description;
         $slug = $request->slug;
-        $state = $request->state;        
+        $state = $request->state;  
+        $price = $request->price;        
+      
         $data = [
             'titre' => $titre,
             'description' => $description,
             'slug' => $slug,
             'state' => $state,
+            'price' => $price,
+
         ];
         
         $request->validate([
             'titre'=>'required|min:2',
             'description'=>'required|min:2',
-            'slug'=>'required|min:2' 
+            'slug'=>'required|min:2' ,
+            'price'=>'required|min:2' 
+
         ]);
         
         $landingpages->fill($data)->save();

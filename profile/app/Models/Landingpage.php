@@ -13,15 +13,11 @@ class Landingpage extends Model
         'description',
         'state',
         'slug',
-        // 'titre',
-        // 'images',
-        // 'details',
-        // 'settings',
-        // 'type',
-        // 'info1',
-        // 'info2',
-        // 'description'
+        'visitors',
+        'price',
+        'user_id',
     ];
+    
 
     public function blocks()
     {

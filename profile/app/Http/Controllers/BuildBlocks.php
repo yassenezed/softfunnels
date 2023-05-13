@@ -10,8 +10,11 @@ use App\Http\Controllers\Blocks\CarousselController;
 use App\Http\Controllers\Blocks\FaqController;
 use App\Http\Controllers\Blocks\IconPlusTextController;
 use App\Http\Controllers\Blocks\VideoController;
+use App\Http\Controllers\Blocks\FormController;
+
 
 use App\Models\Block;
+use App\Models\FormConfig;
 use Illuminate\Http\Request;
 
 use function PHPSTORM_META\type;
@@ -22,6 +25,8 @@ class BuildBlocks extends Controller
     public function build($type,$id)
     {
         $block = Block::where([[ "type" , $type] , [ "id" , $id] ])->firstorFail();
+        // $form_configs = FormConfig;::where([[ "type" , $type] , [ "id" , $id] ])->firstorFail();
+
     switch ($type) {
         case 'type1':
             return view('blocks.type1', compact('type', 'id', 'block'));
@@ -40,8 +45,10 @@ class BuildBlocks extends Controller
             return view('blocks.pack', compact('type','id', 'block'));
         case 'trust':
             return view('blocks.trust', compact('type','id', 'block'));
-        case 'review':
+        case 'reviews':
             return view('blocks.reviews', compact('type','id', 'block'));
+        case 'form':
+            return view('blocks.form', compact('type','id', 'block'));
         // add more cases for other types as needed
         default:
             abort(404);
@@ -67,14 +74,15 @@ class BuildBlocks extends Controller
                 return (new PackController)->store($request, $id);
             case 'trust':
                 return (new TrustController)->store($request, $id);
-                case 'reviews':
-                    return (new ReviewsController)->store($request, $id);
+            case 'reviews':
+                return (new ReviewsController)->store($request, $id);
+            case 'form':
+                return (new FormController)->store($request, $id);
             // add more cases for other types as needed
             default:
                 abort(404);
         }
     }
-
-    
+   
 
 }

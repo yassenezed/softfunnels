@@ -4,9 +4,14 @@
 @endsection
 @section('main')
 <h2>Ajouter Une Tunnel de Vente</h2>
-<form method="POST" action="{{ route ('storelp.index') }}">
+<form method="POST" action="{{ route('storelp.index') }}">
     @csrf
-    
+    @php
+      $user = \App\Models\User::where('email', session('user_id'))->first();
+      @endphp
+      @if ($user)
+      <input type="hidden" name="user_id" value="{{ $user->id }}">
+      @endif
     <div class="form-group mb-3">
         <label for="titre">Titre</label>
         <input type="text" class="form-control" id="title" name="titre" placeholder="Saisissez le titre de la page">
@@ -34,6 +39,15 @@
           {{$message}}
         </div>
   @enderror
+  <div class="form-group mb-3">
+    <label for="slug">Prix</label>
+    <textarea class="form-control" id="price" name="price" rows="3" placeholder="Saisissez le Prix"></textarea>
+</div>
+@error('price')
+      <div class="text-danger">
+        {{$message}}
+      </div>
+@enderror
   <div class="form-group mb-3">
     <label for="state">État : </label>
     <select name="state">

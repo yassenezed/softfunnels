@@ -121,6 +121,12 @@
                     <img class="img-fluid" src="{{ asset('img/typesof/reviews.png') }}" alt="pack" width="90" height="90"> 
                   </label>
                 </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="type" value="form" id="form">
+                  <label class="form-check-label" for="form">
+                    <img class="img-fluid" src="{{ asset('img/typesof/form.png') }}" alt="pack" width="90" height="90"> 
+                  </label>
+                </div>
 
 
                 {{-- <select class="form-control" id="blockType" name="blockType">

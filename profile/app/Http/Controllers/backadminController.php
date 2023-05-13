@@ -9,8 +9,13 @@ use Illuminate\Support\Facades\Session;
 
 class backadminController extends Controller
 {
-    public function home(){ 
-        return view('backadmin.index');
+    public function dashboard(){ 
+        if (!session()->has('user_id')) {
+            session()->flash('error', 'Vous deveriez se-connecter!');
+            return redirect()->route('signin.index');        
+        }
+        return view('backadmin.dashboard');
+
     }
     public function show(){
         
@@ -42,6 +47,8 @@ class backadminController extends Controller
             'password' =>$hashedpd,
             'username' => $username,
         ]);
+       
+
          session()->flash('success', 'Data has been saved successfully!');
          return redirect()->route('home.index');
          
@@ -57,10 +64,12 @@ class backadminController extends Controller
        $credentials = [ 'email' => $login, 'password' => $password];
        if(Auth::attempt($credentials))
        {
-           //Connected
+        session()->start();
+        session()->put('user_id', $login);
+      
            $request->session()->regenerate();
            session()->flash('success', 'Vous etes connecté! '.$login.' .');
-           return view('backadmin.index');
+           return view('backadmin.dashboard');
        }else{
            //Wrong
            return back()->withErrors([
@@ -75,7 +84,7 @@ class backadminController extends Controller
          Session::flush();
          Auth::logout();
          session()->flash('success', 'Vous etes Deconnecté!');
-         return to_route('login.index');
+         return to_route('signin.index');
    }
    
 }
