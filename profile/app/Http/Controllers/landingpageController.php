@@ -10,21 +10,23 @@ use Illuminate\Http\Request;
 
 class landingpageController extends Controller
 {
+    
    
     public function landingpageslist()
     {
-        // if (!session()->has('user_id')) {
-        //     session()->flash('error', 'Vous deveriez se-connecter!');
-        //     return redirect()->route('signin.index');        
-        // }
-        // // $profiles = Profile::all();
-        // $landingpages = Landingpage::paginate(10);
-        // return view('lps.landingpageslist',compact('landingpages'));
-        
         if (!session()->has('user_id')) {
             session()->flash('error', 'Vous devez vous connecter!');
             return redirect()->route('signin.index');        
         }
+        $user_id = session()->get('user_id');
+        $user = User::where('email', $user_id)->first();
+        $role = $user->role;
+        
+        if ($role === 'admin') {
+        $landingpages = Landingpage::orderByDesc('id')->paginate(10);
+        return view('lps.landingpageslist',compact('landingpages'));
+        }
+
         $user_id = session()->get('user_id');
         $user = User::where('email', $user_id)->first();
         $landingpages = Landingpage::where('user_id', $user->id)->paginate(10);
@@ -99,9 +101,11 @@ class landingpageController extends Controller
                 'adress' => $adress,
                 'notes' => $notes,
             ]);
-            session()->flash('success', 'Data has been saved successfully!');
-            return redirect()->route('landingpageslist.index');
-        }
+            session()->flash('success', 'les modifications ont été bien enregistré!');
+            return redirect()->route('thankyou.page', ['name' => $fullname]);
+            // ('landingpageslist.index');
 
+        }
+        
     
 }

@@ -43,7 +43,7 @@ class updateController extends Controller
     public function destroy(Landingpage $landingpages)
     {
         $landingpages->delete();   
-        session()->flash('success', 'Landing Page has been sucessfully deleted!');
+        session()->flash('success', 'Landing Page a été bien supprimé!');
         return back();
     }
 }

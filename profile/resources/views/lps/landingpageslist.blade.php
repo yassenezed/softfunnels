@@ -39,13 +39,7 @@
         </td>
         <td>
             <div>
-                <a href="{{ route('editlp.index', $lp->id) }}" class="btn btn-danger ml-6">Modifer</a>
-            </div>
-        </td>
-       
-        <td>
-            <div>
-                <a href="{{ route('destroylp.index', $lp->id) }}" class="btn btn-danger ml-6">Supprimer</a>
+                <a href="{{ route('editlp.index', $lp->id) }}" class="btn btn-warning ml-6">Modifer</a>
             </div>
         </td>
         <td>
@@ -53,6 +47,12 @@
                 <a href="{{ route('landingpage.show', $lp->id) }}" class="btn btn-success ml-6">Appercu</a>
             </div>
         </td>
+        <td>
+            <div>
+                <a href="{{ route('destroylp.index', $lp->id) }}" class="btn btn-danger ml-6">Supprimer</a>
+            </div>
+        </td>
+        
         
             
     </tr>

@@ -3,7 +3,7 @@
     <div class="container space-2 space-3--lg mx-auto">
         <!-- Title -->
       <div class="w-md-80 w-lg-60 text-center mx-md-auto mb-9">
-        <h2 class="h3">Read our news &amp; blogs</h2>
+        <h2 class="h3">Avis de Nos Clients</h2>
       </div>
       <!-- End Title -->
 

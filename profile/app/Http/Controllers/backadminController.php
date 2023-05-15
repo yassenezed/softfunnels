@@ -50,7 +50,7 @@ class backadminController extends Controller
        
 
          session()->flash('success', 'Data has been saved successfully!');
-         return redirect()->route('home.index');
+         return redirect()->route('signinn.index');
          
 
     }
@@ -69,7 +69,9 @@ class backadminController extends Controller
       
            $request->session()->regenerate();
            session()->flash('success', 'Vous etes connecté! '.$login.' .');
-           return view('backadmin.dashboard');
+        //    return view('backadmin.dashboard');
+           return redirect()->route('backadmin.dashboard');
+
        }else{
            //Wrong
            return back()->withErrors([

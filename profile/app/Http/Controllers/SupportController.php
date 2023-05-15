@@ -10,14 +10,24 @@ class SupportController extends Controller
 {
    
     public function show()
-{
-    if (!session()->has('user_id')) {
-        session()->flash('error', 'Vous devriez vous connecter!');
-        return redirect()->route('signin.index');        
+    {
+        if (!session()->has('user_id')) {
+            session()->flash('error', 'Vous devriez vous connecter!');
+            return redirect()->route('signin.index');        
+        }
+        $userEmail = session()->get('user_id');
+        $user = User::where('email', $userEmail)->firstOrFail();
+        if ($user->role === 'admin') {
+            $messages = Message::orderByDesc('id')->paginate(10);
+            return view('messages.messages', compact('messages'));
+    
+        }   
+        $messages = Message::where('user_id', $user->id)->orderByDesc('id')->paginate(10);
+        
+        return view('messages.messages', compact('messages'));
     }
-    $messages = Message::paginate(10);
-    return view('messages.messages', compact('messages'));
-}
+    
+
     
     public function ajouter()
     {
@@ -26,10 +36,7 @@ class SupportController extends Controller
             return redirect()->route('signin.index');        
         }
         $users = DB::table('users')->paginate(10);
-
         return view('messages.send', ['users' => $users]);
-
-    
     }
     public function storemessage(Request $request)
     {
@@ -49,10 +56,11 @@ class SupportController extends Controller
              'user_id' => $user_id,
              'message' => $message,
          ]);
-         session()->flash('success', 'Data has been saved successfully!');
+         session()->flash('success', 'Le message a été bien envoyé!');
         //  dd($request->all());
+        $messages = Message::orderBy('id', 'desc')->paginate(10);
 
-         return view('messages.messages');
+        return view('messages.messages', compact('messages'));
     
     }
 

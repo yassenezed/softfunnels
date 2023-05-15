@@ -53,7 +53,7 @@ class BlockController extends Controller
             'landingpage_id' => $landingpage_id,
             'ordre' => $maxOrderNumber + 1, // increment the maximum order number by 1
         ]);
-        session()->flash('success', 'Data has been saved successfully!');
+        session()->flash('success', 'Les modifications ont été bien enregistrés!');
         session(['blockslist.page' => $request->get('page')]);
         return back()->withInput()->with('page_id', $request->get('landingpage_id'));
     }

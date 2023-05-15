@@ -14,8 +14,6 @@
             <th>User Email</th>
             <th>Message</th>
             <th>Delete</th>
-
-        
         </tr>
     </thead>
     <tbody>

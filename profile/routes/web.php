@@ -14,7 +14,7 @@ use App\Http\Controllers\BuildBlocks;
 use App\Http\Controllers\CommandesController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controllers\AdminController;
 
 use App\Http\Controllers\SupportController;
 
@@ -50,6 +50,10 @@ Route::GET('/landingpages/{landingpages}', [deleteController::class,'destroy'])-
 
 Route::get('/page/{id}', [ landingpageController::class,'show'])->name('landingpage.show');
 Route::POST('/page/{id}/store', [landingpageController::class,'store'])->name('leads.store');
+//THANK YOU PAGE
+Route::get('/thankyou/{name}', function ($name) {
+    return view('thankyou.page', ['name' => $name]);
+})->name('thankyou.page');
 
 
 // *********************************************** //
@@ -101,3 +105,14 @@ Route::GET('/support/{message}', [SupportController::class,'destroy'])->name('me
 
 //LOGOUT
 Route::get('/logout', [backadminController::class,'logout'])->name('logout.index');
+
+// ALL USERS
+
+Route::get('/utilisateurs', [AdminController::class,'showusers'])->name('users.show');
+Route::GET('/utilisateurs/{user}', [AdminController::class,'softdelete'])->name('users.softdelete');
+
+
+/// USER UPDATE INFOS
+Route::get('/modifier', [AdminController::class,'editpage'])->name('users.editpage');
+Route::POST('/modifier/edit', [AdminController::class,'edit'])->name('users.edit');
+
