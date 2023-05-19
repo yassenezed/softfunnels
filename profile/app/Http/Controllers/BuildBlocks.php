@@ -11,8 +11,7 @@ use App\Http\Controllers\Blocks\FaqController;
 use App\Http\Controllers\Blocks\IconPlusTextController;
 use App\Http\Controllers\Blocks\VideoController;
 use App\Http\Controllers\Blocks\FormController;
-
-
+use App\Http\Controllers\Blocks\HeroController;
 use App\Models\Block;
 use App\Models\FormConfig;
 use Illuminate\Http\Request;

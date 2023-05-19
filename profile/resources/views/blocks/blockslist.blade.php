@@ -24,15 +24,11 @@
          <td>{{$block->ordre}}</td>
          <td>{{$landingpage->titre}}</td>
          <td>
-            <div>
-                <a href="{{ route('build.index', ['type' => $block->type, 'id' => $block->id]) }}" class="btn btn-success mr-6">Construire/Modifier</a>
-            </div>
+                <a href="{{ route('build.index', ['type' => $block->type, 'id' => $block->id]) }}"><i class="fa-solid fa-screwdriver-wrench" style="color: #2474ff;"></i></a>
         </td>
       
         <td>
-            <div>
-                <a href="{{ route('destroyblock.index', $block->id) }}" class="btn btn-danger ml-6">Supprimer</a>
-            </div>
+                <a href="{{ route('destroyblock.index', $block->id) }}"><i class="fa-solid fa-trash" style="color: #ff0000;"></i></a>
         </td>
         
             
@@ -61,12 +57,16 @@
               @csrf
               <input type="text" class="form-control" id="page_id" name="landingpage_id" value="{{ request()->get('page_id') }}" hidden>
               {{-- <input type="text" class="form-control" id="type" name="type" value="" hidden> --}}
-              
               <div class="form-group mb-3">
                 <label for="blockName">Nom du Bloc:</label>
                 <input type="text" class="form-control" id="titre" name="titre">
+
                 <label for="blockType">Type de Bloc:</label>
-                
+                <div class="flex-form" style="
+                  display: flex;
+                  flex-wrap: wrap;
+                  gap: 30px;
+              ">
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="type" value="type1" id="type1">
                   <label class="form-check-label" for="type1">
@@ -127,7 +127,13 @@
                     <img class="img-fluid" src="{{ asset('img/typesof/form.png') }}" alt="pack" width="90" height="90"> 
                   </label>
                 </div>
-
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="type" value="hero" id="hero">
+                  <label class="form-check-label" for="hero">
+                    <img class="img-fluid" src="{{ asset('img/typesof/form.png') }}" alt="pack" width="90" height="90"> 
+                  </label>
+                </div>
+              </div>
 
                 {{-- <select class="form-control" id="blockType" name="blockType">
                     <option value="">-- Choisir un type de bloc --</option>

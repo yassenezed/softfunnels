@@ -224,7 +224,7 @@ button {
 .header_section {
     width: 100%;
     float: left;
-    background-image: url(../images/banner-bg.png);
+    background-image: url(../images/back.svg);
     height: auto;
     background-size: 100%;
 }
@@ -273,12 +273,12 @@ button {
 .banner_section {
     padding-top: 40px;
     padding-bottom: 70px;
-    border-bottom: 80px solid #13a25d;
+    border-bottom: 11px solid #1383a2;
 }
 .banner_main {
     width: 44%;
     float: left;
-    background: #fff;
+    /* background: #fff; */
     padding: 40px;
 }
 
@@ -317,11 +317,11 @@ button {
 }
 .contact_bt a:hover {
     color: #ffffff;
-    background-color: #13a25d;
+    background-color: #1383a2;
 }
 .contact_bt.active a {
     color: #ffffff;
-    background-color: #13a25d;
+    background-color: #1383a2;
 }
 .readmore_bt {
     width: 170px;
@@ -341,7 +341,7 @@ button {
 }
 .readmore_bt a:hover {
     color: #ffffff;
-    background-color: #13a25d;
+    background-color: #1383a2;
 }
 
 .carousel-indicators {
@@ -383,7 +383,7 @@ button {
     position: absolute;
     width: 100px;
     height: 390px;
-    background-color: #13a25d;
+    background-color: #1383a2;
     left: 0px;
     right: initial;
     top: 0;
@@ -448,7 +448,7 @@ button {
 }
 .read_bt a:hover {
     color: #ffffff;
-    background-color: #13a25d;
+    background-color: #1383a2;
 }
 
 /* about section end */
@@ -458,7 +458,7 @@ button {
 .services_section{
     width: 100%;
     float: left;
-    background-image: url(../images/services-bg.png);
+    background-image: url(../images/backgroundimage.png);
     background-size: 100%;
     background-repeat: no-repeat;
 }
@@ -630,7 +630,7 @@ button {
 }
 .seemore_bt a:hover {
     color: #ffffff;
-    background-color: #13a25d;
+    background-color: #1383a2;
 }
 
 /* events section end */
@@ -719,7 +719,7 @@ textarea#comment::placeholder {
 .send_bt a {
     width: 100%;
     float: left;
-    background-color: #13a25d;
+    background-color: #1383a2;
     color: #ffffff;
     text-align: center;
     padding: 14px 0px;
@@ -774,7 +774,7 @@ textarea#comment::placeholder {
     width: 100%;
     font-size: 20px;
     text-transform: uppercase;
-    color: #13a25d;
+    color: #1383a2;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
 }
@@ -799,7 +799,7 @@ textarea#comment::placeholder {
 }
 
 .testimonial_box:hover{
-    background-color: #13a25d;
+    background-color: #1383a2;
 }
 .testimonial_box:hover .dummy_text{
     color: #ffffff;
@@ -829,7 +829,7 @@ textarea#comment::placeholder {
 
 #my_carousel .carousel-indicators .active {
     width: 50px;
-    background-color: #13a25d;
+    background-color: #1383a2;
 }
 
 .margin_top90{
@@ -934,7 +934,7 @@ textarea#comment::placeholder {
     width: 100%;
     float: left;
     font-size: 20px;
-    color: #13a25d;
+    color: #1383a2;
     background-color: transparent;
     text-transform: uppercase;
 }
@@ -966,7 +966,7 @@ textarea#comment::placeholder {
     color: #ffffff;
 }
 .copyright_text a:hover {
-    color: #13a25d;
+    color: #1383a2;
 }
 
 

@@ -35,54 +35,27 @@
    <body>
       <!--header section start -->
       <div class="header_section">
-         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="logo"><a href="{{route('home.index')}}"><img src="#"></a></div>
-            {{-- logo 127.44 
-            <div class="logo"><a href="{{route('home.index')}}"><img src="{{ asset('homepagefront/images/logo.png') }}"></a></div> --}}
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-               <ul class="navbar-nav mr-auto">
-                  <li class="nav-item active">
-                     <a class="nav-link" href="{{route('home.index')}}">Home</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="{{route('home.services')}}">Services</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="{{route('home.contact')}}">Contact</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="{{route('home.about')}}">À Propos</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="{{route('home.about')}}">S'inscrire</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="{{route('home.about')}}">Se Connecter</a>
-                  </li>
-               </ul>
-               {{-- <form class="form-inline my-2 my-lg-0">
-                  <div class="search_icon"><img src="{{ asset('homepagefront/images/search-icon.png')}}"></div>
-               </form> --}}
+         <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">SoftPages</a>
+              </div>
+              <ul class="nav ml-auto">
+                <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">À Propos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contactez-Nous</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('signupview.index')}}"><span class="glyphicon glyphicon-user"></span> Inscription</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('signinn.index')}}"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
+              </ul>
             </div>
-         </nav>
+          </nav>
          <!--banner section start -->
          <div class="banner_section layout_padding">
             <div class="container-fluid">
                <section class="slide-wrapper">
                   <div class="container-fluid">
                      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                        <!-- Indicators -->
-                        <ol class="carousel-indicators">
-                           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                           <li data-target="#myCarousel" data-slide-to="1"></li>
-                           <li data-target="#myCarousel" data-slide-to="2"></li>
-                           <li data-target="#myCarousel" data-slide-to="3"></li>
-                           <li data-target="#myCarousel" data-slide-to="4"></li>
-                        </ol>
+                      
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
                            <div class="carousel-item active">
@@ -100,7 +73,7 @@
                            <div class="carousel-item">
                               <div class="container">
                                  <div class="banner_main">
-                                    <h1 class="banner_taital">Business Agency Profit Your Marketing</h1>
+                                    <h3 class="banner_taital">Parce que vous méritez une meilleure plateforme de Landing Pages !</h3>
                                     <p class="banner_text">It is a long established fact that a reader will be distracted by the readable content of a page when</p>
                                     <div class="btn_main">
                                        <div class="contact_bt active "><a href="#">Contact Us</a></div>
@@ -112,7 +85,7 @@
                            <div class="carousel-item">
                               <div class="container">
                                  <div class="banner_main">
-                                    <h1 class="banner_taital">Business Agency Profit Your Marketing</h1>
+                                    <h3 class="banner_taital">Parce que vous méritez une meilleure plateforme de Landing Pages !</h3>
                                     <p class="banner_text">It is a long established fact that a reader will be distracted by the readable content of a page when</p>
                                     <div class="btn_main">
                                        <div class="contact_bt active "><a href="#">Contact Us</a></div>
@@ -124,7 +97,7 @@
                            <div class="carousel-item">
                               <div class="container">
                                  <div class="banner_main">
-                                    <h1 class="banner_taital">Business Agency Profit Your Marketing</h1>
+                                    <h3 class="banner_taital">Parce que vous méritez une meilleure plateforme de Landing Pages !</h3>
                                     <p class="banner_text">It is a long established fact that a reader will be distracted by the readable content of a page when</p>
                                     <div class="btn_main">
                                        <div class="contact_bt active "><a href="#">Contact Us</a></div>
@@ -136,7 +109,7 @@
                            <div class="carousel-item">
                               <div class="container">
                                  <div class="banner_main">
-                                    <h1 class="banner_taital">Business Agency Profit Your Marketing</h1>
+                                    <h3 class="banner_taital">Parce que vous méritez une meilleure plateforme de Landing Pages !</h3>
                                     <p class="banner_text">It is a long established fact that a reader will be distracted by the readable content of a page when</p>
                                     <div class="btn_main">
                                        <div class="contact_bt active "><a href="#">Contact Us</a></div>
@@ -157,17 +130,16 @@
       <!--about section start -->
       <div class="about_section layout_padding">
          <div class="container">
-            <h1 class="about_taital">About Us</h1>
-            <p class="about_text">It is a long established fact that a reader will be distracted by the readable content of a page when</p>
+            <h1 class="about_taital">À PROPOS</h1>
+            <p class="about_text">Notre service de création de pages de destination est conçu pour vous aider à capturer l'attention de vos visiteurs et à les convertir en clients.</p>
             <div class="about_section_2">
                <div class="row">
                   <div class="col-lg-6">
-                     <div class="about_image"><img src="{{ asset('homepagefront/images/about-img.png')}}"></div>
+                     <div class="about_image"><img src="{{ asset('homepagefront/images/landingpage.svg')}}"></div>
                   </div>
                   <div class="col-lg-6">
                      <div class="about_taital_main">
-                        <p class="lorem_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words </p>
-                        <div class="read_bt"><a href="#">Read More</a></div>
+                        <p class="lorem_text">Notre plateforme de création de pages de destination simplifie le processus de création en éliminant le besoin de programmation ou de conception graphique. Avec une variété de fonctionnalités intégrées telles que des formulaires de capture d'informations, des témoignages clients et des appels à l'action percutants, vous pouvez créer des pages qui génèrent des résultats tangibles.</p>
                      </div>
                   </div>
                </div>
@@ -175,7 +147,7 @@
          </div>
       </div>
       <!--about section end -->
-      <!-- services section start -->
+      {{-- <!-- services section start -->
       <div class="services_section layout_padding">
          <div class="container">
             <h1 class="services_taital">What We Do</h1>
@@ -222,24 +194,23 @@
             </div>
          </div>
       </div>
-      <!-- services section end -->
+      <!-- services section end --> --}}
       <!-- blog section start -->
       <div class="blog_section layout_padding">
          <div class="container">
             <div class="row">
                <div class="col-md-6">
-                  <div class="blog_img"><img src="{{ asset('homepagefront/images/blog-img.png')}}"></div>
+                  <div class="blog_img"><img src="{{ asset('homepagefront/images/Filter-rafiki.svg')}}"></div>
                </div>
                <div class="col-md-6">
-                  <h1 class="blog_taital">Easily Grow Your Business Earn More Money</h1>
-                  <p class="blog_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words There uffered alteration in some form, by injected humour, or randomised words </p>
-                  <div class="read_bt"><a href="#">Read More</a></div>
+                  <h1 class="blog_taital">Augmentez vos ventes et votre génération de leads</h1>
+                  <p class="blog_text">Grâce à notre service de création de landing pages. Que vous ayez besoin d'une page pour promouvoir un produit, collecter des adresses e-mail ou organiser un événement, notre outil intuitif vous permet de créer des pages de destination percutantes en quelques étapes simples.</p>
                </div>
             </div>
          </div>
       </div>
       <!-- blog section end -->
-      <!-- events section start -->
+      {{-- <!-- events section start -->
       <div class="events_section layout_padding">
          <div class="container">
             <h1 class="events_taital">Follow Our Video For Solved Your Problem</h1>
@@ -251,28 +222,27 @@
             <div class="seemore_bt"><a href="#">See More</a></div>
          </div>
       </div>
-      <!-- events section end -->
+      <!-- events section end --> --}}
       <!-- contact section start -->
+      <br><br>
       <div class="contact_section layout_padding">
          <div class="container">
-            <h1 class="contact_taital">Get In Touch</h1>
-            <p class="contact_text">majority have suffered alteration in some form, by injected humour, or </p>
+            <h3 class="contact_taital">Contactez Nous</h3>
             <div class="contact_section_2 layout_padding">
                <div class="row">
                   <div class="col-md-6">
                      <div class="contact_main">
-                        <input type="text" class="mail_text" placeholder="Full Name" name="Full Name">
-                        <input type="text" class="mail_text" placeholder="Phone Number" name="Phone Number">
+                        <input type="text" class="mail_text" placeholder="Nom Complet" name="Full Name">
+                        <input type="text" class="mail_text" placeholder="Telephone" name="Phone Number">
                         <input type="text" class="mail_text" placeholder="Email" name="Email">
-                        <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea>
-                        <div class="send_bt"><a href="#">SEND</a></div>
+                        <textarea class="massage-bt" placeholder="Message" rows="5" id="comment" name="Message"></textarea>
+                        <div class="send_bt"><a href="#">Envoyer</a></div>
                      </div>
                   </div>
                   <div class="col-md-6">
                      <div class="map_main">
                         <div class="map-responsive">
-                           <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&amp;q=Eiffel+Tower+Paris+France" width="600" height="400" frameborder="0" style="border:0; width: 100%;" allowfullscreen=""></iframe>
-                        </div>
+                           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3324.2945809003572!2d-7.6437572248851176!3d33.571699973341715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7d32bb7d6d747%3A0xf1537bf44c209786!2sCentre%20Commercial%20Nadia!5e0!3m2!1sfr!2sma!4v1684425086738!5m2!1sfr!2sma" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                        </div>
                      </div>
                   </div>
                </div>

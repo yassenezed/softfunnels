@@ -9,7 +9,7 @@ $details = $block->titre;
   max-width: 600px; /* adjust as needed */
 }
 </style>
-<div class="container space-2 space-3-top--lg">
+<div class="container content-space-1 content-space-t-md-4 content-space-b-md-3">
   <!-- Title -->
   <div class="w-md-80 w-lg-60 text-center mx-md-auto mb-9">
     <span class="u-label u-label--sm u-label--purple mb-3">{{$block->titre}}</span>

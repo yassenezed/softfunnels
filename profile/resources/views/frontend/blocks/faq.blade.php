@@ -1,6 +1,7 @@
 <div class="container space-2">
-    <h2>Frequently asked questions</h2>
-    <div class="container">
+    <h2 style="text-align: center;">Frequently asked questions</h2>
+    <br>
+    <div class="container  content-space-1 content-space-t-md-4 content-space-b-md-3">
         <div id="basicsAccordion">
             @foreach(json_decode($block->details, true) as $key => $detail)
             <div class="card mb-3">

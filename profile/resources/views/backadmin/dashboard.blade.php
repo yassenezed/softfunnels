@@ -78,7 +78,7 @@
                                 @endphp
 
                             <div class="ms-3">
-                                <p class="mb-2">Revenue Du Jour</p>
+                                <p class="mb-2">Revenue Du Jour (Estimée)</p>
                                 <h6 class="mb-0">{{$totalSales}} MAD</h6>
                             </div>
                         </div>
@@ -116,7 +116,7 @@
                                 @endphp
 
                                 <div class="ms-3">
-                                    <p class="mb-2">Total des Ventes</p>
+                                    <p class="mb-2">Total des Ventes (Estimation)</p>
                                     <h6 class="mb-0">{{ $totalSales }} MAD</h6>
                                 </div>
                         </div>

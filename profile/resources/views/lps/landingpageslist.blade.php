@@ -3,19 +3,22 @@
     Tunnels De Ventes
 @endsection
 @section('main')
-@section('main')
-<h2>Liste Des Tunnels</h2>
-<div class="mb-3" >
-    <a href="{{ route('landingpageajouter.index') }}" class="btn btn-primary">Ajouter un tunnel de vente</a>
+<div class="mb-3" style=" display: flex;
+align-items: center;
+gap: 10px;">
+    <h2>Liste Des Pages</h2>
+    <div class="button-container" style="   margin-left: auto;">
+        <a href="{{ route('landingpageajouter.index') }}" class="btn btn-primary"><i class="fa-solid fa-plus"> Ajouter</i></a>
+    </div>
 </div>
-<table class="table">
+<table class="table" >
      <tr>
         <th>ID</th>
         <th>Titre</th>
         <th>Description</th>
         <th>Lien</th>
         <th>Etat</th>
-        <th>Nombre des Visiteurs</th>
+        <th>Visiteurs</th>
         <th>Prix</th>
         <th colspan="4" class="text-center">Les Actions</th>
      </tr>
@@ -29,36 +32,32 @@
          <td>{{$lp->state}}</td>
          <td>{{$lp->visitors}}</td>
          <td>{{$lp->price}}MAD</td>
-
          <td>
             <div>
-                <a href="{{ route('blockslist.index', [ 'page_id' => $lp->id] ) }}" class="btn btn-primary mr-6">
-                    Construire
+                <a href="{{ route('blockslist.index', [ 'page_id' => $lp->id] ) }}" class="btn btn-primary"> 
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+
                 </a>
             </div>
         </td>
         <td>
             <div>
-                <a href="{{ route('editlp.index', $lp->id) }}" class="btn btn-warning ml-6">Modifer</a>
+                <a href="{{ route('editlp.index', $lp->id) }}" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+            </div>
+            </td>
+        <td>
+            <div>
+                <a href="{{ route('landingpage.show', $lp->id) }}"class="btn btn-success"><i class="fa-solid fa-eye"></i></a>
             </div>
         </td>
         <td>
             <div>
-                <a href="{{ route('landingpage.show', $lp->id) }}" class="btn btn-success ml-6">Appercu</a>
+                <a href="{{ route('destroylp.index', $lp->id) }}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+
             </div>
-        </td>
-        <td>
-            <div>
-                <a href="{{ route('destroylp.index', $lp->id) }}" class="btn btn-danger ml-6">Supprimer</a>
-            </div>
-        </td>
-        
-        
-            
-    </tr>
-            
-            </form>
-       
+        </td>     
+    </tr> 
+    </form>
     @endforeach
         
 </table>

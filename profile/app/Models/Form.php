@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Form extends Model
 {
-    protected $table = 'normal_form';
+    protected $table = 'forms';
     
     protected $fillable = [
         'landing_page_id',

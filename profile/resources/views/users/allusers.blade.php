@@ -27,7 +27,8 @@ Liste Des Utilisateurs
        
         <td>
             <div>
-                <a href="{{ route('users.softdelete', $user->id) }}" class="btn btn-danger ml-6">Soft Delete</a>
+                <a href="{{ route('users.softdelete', $user->id) }}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+
             </div>
         </td>
      

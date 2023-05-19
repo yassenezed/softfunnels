@@ -12,19 +12,22 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
                 <a href="{{route('backadmin.dashboard')}}" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary">Soft Funnels</h3>
+                    <h3 class="text-primary">Soft Pages</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
                         {{-- <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;"> --}}
                         {{-- <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div> --}}
                     </div>
-                  
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="{{route('backadmin.dashboard')}}" class="nav-item nav-link active"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
-                    <a href="{{ route ('landingpageslist.index') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Tunnel de Vente</a>
-                    <a href="{{route('commandes.show')}}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Commandes</a>
+                    <a href="{{ route('backadmin.dashboard') }}" class="nav-item nav-link{{ request()->is('home') ? ' active' : '' }}">
+                        <i class="fa fa-home" aria-hidden="true"></i> Home
+                    </a>                    
+                    <a href="{{ route('landingpageslist.index') }}" class="nav-item nav-link{{ request()->is('landingpages') ? ' active' : '' }}">
+                        <i class="fa-regular fa-file-lines"></i> Mes Pages
+                    </a>
+                    <a href="{{route('commandes.show')}}"class="nav-item nav-link{{ request()->is('commandes') ? ' active' : '' }}"><i class="fa-solid fa-sack-dollar"></i>Revenues</a>
                     @php
                             $user_id = session()->get('user_id');
                             $user = \App\Models\User::where('email', $user_id)->first();
@@ -33,22 +36,21 @@
 
                         @if ($role === 'admin') 
                             <a href="{{ route('users.show') }}" class="nav-item nav-link">
-                                <i class="fa fa-user"></i>
+                                <i class="fa-sharp fa-light fa-users"></i>
                                 Utlisateurs
                             </a>
                         @endif
-                    <a href="{{route('backadmin.dashboard')}}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Analytiques</a>
-                    <a href="{{route('support.show')}}" class="nav-item nav-link"><i class="fas fa-comments"></i>Support</a>
-                    <a href="{{route('users.editpage')}}" class="nav-item nav-link"><i class="fa fa-cog" aria-hidden="true"></i>Parametres</a>
-                        {{-- <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
+                    <a href="{{route('clients.show')}}" class="nav-item nav-link{{ request()->is('clients') ? ' active' : '' }}"><i class="fa fa-user"></i>Clients</a>
+                    <a href="{{route('backadmin.dashboard')}}" class="nav-item nav-link"><i class="fa-solid fa-chart-simple"></i>Analytiques</a>
+                    <a href="{{route('support.show')}}" class="nav-item nav-link{{ request()->is('support') ? ' active' : '' }}"><i class="fas fa-comments"></i>Support</a>
+                    {{-- <a href="{{route('users.editpage')}}" class="nav-item nav-link"><i class="fa fa-cog" aria-hidden="true"></i>Parametres</a> --}}
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-cog" aria-hidden="true"></i>Parametres</a>
                             <div class="dropdown-menu bg-transparent border-0">
-                                <a href="signin.html" class="dropdown-item">Sign In</a>
-                                <a href="signup.html" class="dropdown-item">Sign Up</a>
-                                <a href="404.html" class="dropdown-item">404 Error</a>
-                                <a href="blank.html" class="dropdown-item">Blank Page</a>
+                                <a href="{{route('users.editpage')}}" class="dropdown-item">Modifier Mes Informations</a>
+                                <a href="{{route('users.password')}}" class="dropdown-item">Modifier le Mot de passe</a>
                             </div>
-                        </div> --}}
+                        </div>
                     </div>
             </nav>
 
@@ -108,4 +110,4 @@
                     </div>
                 </div>
             </nav>
-            <!-- Navbar End -->
+<!-- Navbar End -->

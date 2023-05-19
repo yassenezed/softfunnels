@@ -3,9 +3,15 @@
     Liste des Messages
 @endsection
 @section('main')
-<h2>Liste des Messages</h2>
-<div class="mb-3" >
-    <a href="{{ route('message.add') }}" class="btn btn-primary">Envoyer un nouveau message</a>
+
+
+<div class="mb-3" style=" display: flex;
+align-items: center;
+gap: 10px;">
+    <h2>Liste Des Messages</h2>
+    <div class="button-container" style="   margin-left: auto;">
+        <a href="{{ route('message.add') }}" class="btn btn-primary"><i class="fa-solid fa-plus">  Envoyer</i></a>
+    </div>
 </div>
 <table class="table">
         <thead>
@@ -24,7 +30,8 @@
             <td>{{ $message->message }}</td>
             <td>
                 <div>
-                    <a href="{{ route('message.destroy', $message->id) }}" class="btn btn-danger ml-6">Supprimer</a>
+                    <a href="{{ route('message.destroy', $message->id) }}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+
                 </div>
             </td>
         </tr>

@@ -7,6 +7,7 @@ use App\Models\Landingpage;
 use App\Models\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
@@ -96,6 +97,42 @@ class AdminController extends Controller
         session()->flash('success', 'Les Modifications ont été bien eregistrées !');
         return redirect()->back();
 }
+        public function editPasswordPage()
+        {
+            return view('user.password');
+        }
+
+
+        public function editPassword(Request $request)
+        {
+            $email = $request->session()->get('user_id');
+            // dd($email);
+            $user = User::where('email', $email)->firstOrFail(); 
+            
+            $this->validate($request, [
+                'current_password' => 'required',
+                'password' => 'confirmed|min:6|different:current_password',
+            ], [
+                'current_password.required' => 'Veuillez saisir votre mot de passe actuel.',
+                'password.confirmed' => 'La confirmation du nouveau mot de passe ne correspond pas.',
+                'password.min' => 'Le nouveau mot de passe doit comporter au moins 6 caractères.',
+                'password.different' => 'Le nouveau mot de passe doit être différent du mot de passe actuel.',
+            ]);
+
+            if (Hash::check($request->current_password, $user->password)) { 
+            $user->fill([
+                'password' => Hash::make($request->password)
+                ])->save();
+
+                session()->flash('success', 'Mot de passe changé');
+                return redirect()->back();
+
+            } else {
+                // session()->flash('success', 'Les mot de passes sont pas les memes');
+                return redirect()->back()->withErrors(['current_password' => 'Votre mot de passe actuel est incorrect.']);
+            }
+}
+
 
         
 

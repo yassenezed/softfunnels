@@ -15,12 +15,15 @@ use App\Http\Controllers\CommandesController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\ClientsController;
 use App\Http\Controllers\SupportController;
 
 
 
 Route::get('/home', [backadminController::class,'dashboard'])->name('backadmin.dashboard');
+Route::get('/', function () {
+    return view('homepagefront.index');
+})->name('home');
 // SIGNUP
 Route::get('/inscrivez-vous', [backadminController::class,'show'])->name('signupview.index');
 Route::POST('/inscrivez-vous/store', [backadminController::class,'store'])->name('signup.index');
@@ -115,4 +118,35 @@ Route::GET('/utilisateurs/{user}', [AdminController::class,'softdelete'])->name(
 /// USER UPDATE INFOS
 Route::get('/modifier', [AdminController::class,'editpage'])->name('users.editpage');
 Route::POST('/modifier/edit', [AdminController::class,'edit'])->name('users.edit');
+// UPDATE THE PASSWORD
 
+Route::get('/modifier-password', [AdminController::class, 'editPasswordPage'])->name('users.password');
+
+Route::post('/modifier-password/edit', [AdminController::class, 'editPassword'])->name('users.newpass');
+
+
+// AFFICHER LES CLIENTS
+Route::get('/clients', [ClientsController::class, 'show'])->name('clients.show');
+Route::get('/clients/add', [ClientsController::class, 'add'])->name('clients.add');
+Route::POST('/clients/store', [ClientsController::class, 'store'])->name('clients.store');
+
+
+
+
+// Client UPDATE
+Route::get('/clients/{clients}/editclient', [ClientsController::class,'editclient'])->name('clients.edit');
+Route::PUT('/clients/{clients}', [ClientsController::class,'updateclient'])->name('clients.update');
+
+//DELETE
+Route::GET('/clients/{clients}/delete', [ClientsController::class,'destroyclient'])->name('clients.destroy');
+
+
+// ADD FROM FORMS
+Route::get('/clients/create', [ClientsController::class, 'createfromform'])->name('clients.create');
+Route::get('/clients/showall/{id}', [ClientsController::class, 'showall'])->name('clients.showall');
+
+
+// COMMANDE EDIT
+Route::get('/commandes/edit/{forms}/', [ClientsController::class, 'edit'])->name('commandes.edit');
+Route::put('/commandes/{forms}', [ClientsController::class, 'update'])->name('commandes.update');
+Route::get('/commandes/{forms}/delete', [ClientsController::class, 'deletecommandes'])->name('commandes.delete');

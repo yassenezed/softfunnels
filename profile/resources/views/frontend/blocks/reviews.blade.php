@@ -1,8 +1,9 @@
  <!-- Blog Grid Section -->
- <div class="bg-gray-100">
-    <div class="container space-2 space-3--lg mx-auto">
+ <div class="bg-gray-100 my-9" style="flex: auto;">
+    <div class="container content-space-1 content-space-t-md-4 content-space-b-md-3">
         <!-- Title -->
       <div class="w-md-80 w-lg-60 text-center mx-md-auto mb-9">
+        <br>
         <h2 class="h3">Avis de Nos Clients</h2>
       </div>
       <!-- End Title -->

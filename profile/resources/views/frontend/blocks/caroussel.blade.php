@@ -28,7 +28,7 @@
 </div> --}}
 
 
-<div class="container">
+<div class="container  content-space-1 content-space-t-md-4 content-space-b-md-3 mt-4">
 <div class="col-md-6">
     @php
         $images = json_decode($block->images);
