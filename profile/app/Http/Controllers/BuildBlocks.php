@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Controllers\Blocks\NavbarController;
 use App\Http\Controllers\Blocks\PackController;
 use App\Http\Controllers\Blocks\ReviewsController;
 use App\Http\Controllers\Blocks\TrustController;
@@ -21,7 +22,7 @@ use function PHPSTORM_META\type;
 class BuildBlocks extends Controller
 {
   
-    public function build($type,$id)
+    public function build(Request $request, $type,$id)
     {
         $block = Block::where([[ "type" , $type] , [ "id" , $id] ])->firstorFail();
         // $form_configs = FormConfig;::where([[ "type" , $type] , [ "id" , $id] ])->firstorFail();
@@ -48,6 +49,8 @@ class BuildBlocks extends Controller
             return view('blocks.reviews', compact('type','id', 'block'));
         case 'form':
             return view('blocks.form', compact('type','id', 'block'));
+        case 'navbar':
+            return (new NavbarController)->view($request, $type, $id, $block);
         // add more cases for other types as needed
         default:
             abort(404);
@@ -77,6 +80,8 @@ class BuildBlocks extends Controller
                 return (new ReviewsController)->store($request, $id);
             case 'form':
                 return (new FormController)->store($request, $id);
+            case 'navbar':
+                return (new NavbarController)->store($request, $id);
             // add more cases for other types as needed
             default:
                 abort(404);

@@ -2,41 +2,48 @@
 @section('title')
     Liste Des Bloques
 @endsection
+
 @section('main')
-@section('main')
-<h2>Liste Des Bloques - {{$landingpage->titre}} </h2>
-<div class="mb-3" >
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addBlockModal">Ajouter un Bloque</button>
+<div class="mb-3" style="display: flex; align-items: center; gap: 10px;">
+  <h2>Liste Des Bloques - {{$landingpage->titre}} </h2>
+  <div class="button-container" style="margin-left: auto;">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addBlockModal">
+        <i class="fa-solid fa-plus"> Ajouter</i> </button>
+  </div>
 </div>
 <table class="table">
-     <tr>
-    
-        <th>Titre</th>
-        <th>Type</th>
-        <th>Ordre</th>
-        <th>Tunnel De Vente</th>
-        <th colspan="3">Les Actions</th>
-     </tr>  
-    @foreach ($blocks as $block)    
-     <tr>
-         <td>{{$block->titre}}</td>
-         <td>{{$block->type}}</td>
-         <td>{{$block->ordre}}</td>
-         <td>{{$landingpage->titre}}</td>
-         <td>
-                <a href="{{ route('build.index', ['type' => $block->type, 'id' => $block->id]) }}"><i class="fa-solid fa-screwdriver-wrench" style="color: #2474ff;"></i></a>
-        </td>
-      
-        <td>
-                <a href="{{ route('destroyblock.index', $block->id) }}"><i class="fa-solid fa-trash" style="color: #ff0000;"></i></a>
-        </td>
-        
-            
-    </tr>
-            
-            </form>
+    <thead>
+      <tr>
+         <th>Titre</th>
+         <th>Type</th>
+         {{-- <th>Ordre</th> --}}
+         <th>Tunnel De Vente</th>
+         <th>Les Actions</th>
+      </tr>  
+    </thead>
+    <tbody id="sortable">
+      @foreach ($blocks as $block)    
+      <tr data-block-id="{{ $block->id }}">
+           <td>{{$block->titre}}</td>
+           <td>{{$block->type}}</td>
+           {{-- <td>{{$block->ordre}}</td> --}}
+           <td>{{$landingpage->titre}}</td>
+           <td>
+              <a href="{{ route('build.index', ['type' => $block->type, 'id' => $block->id]) }}" class="btn btn-primary"><i class="fa-solid fa-screwdriver-wrench"></i></a>
+              <a href="{{ route('bloq.edit', $block->id) }}" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+              <a href="{{ route('destroyblock.index', $block->id) }}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+            </td>
+          
+            {{-- <td>
+              <a href="{{ route('editnameblock.index', $block->id) }}" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+            </td>
        
-    @endforeach
+            <td>
+              <a href="{{ route('destroyblock.index', $block->id) }}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+            </td>   --}}
+      </tr>
+      @endforeach
+    </tbody>
         
 </table>
 {{-- {{ $blocks->appends(['page_id' => request()->get('page_id')])->links() }}
@@ -94,7 +101,7 @@
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="type" value="iconplustext" id="iconplustext">
                   <label class="form-check-label" for="iconplustext">
-                    <img class="img-fluid" src="{{ asset('img/typesof/iconplustext.png') }}" alt="faq" width="90" height="90"> 
+                    <img class="img-fluid" src="{{ asset('img/typesof/iconplustext.svg') }}" alt="faq" width="90" height="90"> 
                   </label>
                 </div>
                 <div class="form-check">
@@ -128,22 +135,13 @@
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="type" value="hero" id="hero">
-                  <label class="form-check-label" for="hero">
-                    <img class="img-fluid" src="{{ asset('img/typesof/form.png') }}" alt="pack" width="90" height="90"> 
+                  <input class="form-check-input" type="radio" name="type" value="navbar" id="navbar">
+                  <label class="form-check-label" for="navbar">
+                    <img class="img-fluid" src="{{ asset('img/typesof/navbar.jpg') }}" alt="navbar" width="90" height="90"> 
                   </label>
                 </div>
               </div>
 
-                {{-- <select class="form-control" id="blockType" name="blockType">
-                    <option value="">-- Choisir un type de bloc --</option>
-                    <option value="type1">
-                      Type1
-                    </option>
-                    <option value="type2">
-                      Type2 
-                    </option>
-                </select> --}}
           </form>
         </div>
         <div class="modal-footer">
@@ -153,7 +151,14 @@
       </div>
     </div>
   </div>
+@endsection
+
+@push('javascript')
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+
 <script>
+
     // Add an event listener to the "Add Block" button
     document.getElementById('addBlockBtn').addEventListener('click', function() {
         // Get the selected block type
@@ -166,5 +171,48 @@
             document.getElementById('addBlockForm').submit();
         }
     });
+
+    var el = document.getElementById('sortable');
+    var sortable = Sortable.create(el, {
+      onEnd: function (evt) {
+        var itemEl = evt.item;  // dragged HTMLElement
+        evt.to;    // target list
+        evt.from;  // previous list
+        evt.oldIndex;  // element's old index within old parent
+        evt.newIndex;  // element's new index within new parent
+        evt.oldDraggableIndex; // element's old index within old parent, only counting draggable elements
+        evt.newDraggableIndex; // element's new index within new parent, only counting draggable elements
+        evt.clone // the clone element
+        evt.pullMode;  // when item is in another sortable: `"clone"` if cloning, `true` if moving
+        var blockId = evt.item.dataset.blockId; // Get the block ID from the data attribute
+        var newIndex = evt.newIndex;
+        console.log(blockId);
+        console.log(newIndex);
+        var csrfToken = document.head.querySelector('meta[name="csrf-token"]').content;
+
+                $.ajaxSetup({
+                  headers: {
+                    'X-CSRF-TOKEN': csrfToken
+                  }
+                });
+
+              $.ajax({
+                type: 'POST',
+                url: '{{ route("updateblock") }}',
+                data: {
+                  blockId: blockId,
+                  newIndex: newIndex
+                },
+                success: function (response) {
+                  console.log('Block order updated successfully');
+                },
+                error: function (xhr, status, error) {
+                  console.error(error);
+                }
+              });
+              },
+        });
 </script>
-@endsection
+
+@endpush
+

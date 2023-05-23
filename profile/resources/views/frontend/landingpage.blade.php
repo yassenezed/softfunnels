@@ -2,8 +2,21 @@
 @extends('frontend.layouts')
 
 @section('content')
-    @foreach ($landingpage->blocks as $block)
+
+        @foreach ($landingpage->blocks as $block)
         {{-- <div class="row"> --}}
+
+            {{-- <div class="row"> --}}
+
+            @if ($block->type == "navbar")
+                @include('frontend.blocks.navbar', compact('block', "landingpage"))
+            @endif
+            {{-- <br> --}}
+        {{-- </div> --}}
+
+                    {{-- <div class="row"> --}}
+
+            
             @if ($block->type == "type1")
                 @include('frontend.blocks.type1', compact('block'))
             @endif
@@ -63,6 +76,7 @@
         @endif
         {{-- <br> --}}
       {{-- </div> --}}
+      
 
     @endforeach
         

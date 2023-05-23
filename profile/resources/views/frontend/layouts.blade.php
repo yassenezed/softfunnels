@@ -4,7 +4,11 @@
 <head>
   <!-- Title -->
   <title>Home Page | Space - Responsive Website Template</title>
-
+  <style>
+    html {
+  scroll-behavior: smooth;
+}
+  </style>
   <!-- Required Meta Tags Always Come First -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

@@ -3,7 +3,7 @@ $details = json_decode($block->details);
 // dd($details);
 @endphp
   <!-- Video Section -->
-  <div class="container">
+  <div class="container content-space-1 content-space-t-md-4 content-space-b-md-3" id="sect{{$block->id}}">
     <!-- Title -->
     <div class="w-md-80 w-lg-60 text-center mx-md-auto mb-9">
         <h2 class="h3">{{ $details[0]->text }}</h2>

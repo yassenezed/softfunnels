@@ -1,5 +1,5 @@
 
-<div class="container content-space-1 content-space-t-md-4 content-space-b-md-3">
+<div class="container content-space-1 content-space-t-md-4 content-space-b-md-3" id="sect{{$block->id}}">
     
     @php
         $images = json_decode($block->images);

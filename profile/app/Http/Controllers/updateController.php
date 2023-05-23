@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Block;
 use App\Models\Landingpage;
 use Illuminate\Http\Request;
 
@@ -46,4 +48,11 @@ class updateController extends Controller
         session()->flash('success', 'Landing Page a été bien supprimé!');
         return back();
     }
+
+
+    
+    
+
+
+
 }

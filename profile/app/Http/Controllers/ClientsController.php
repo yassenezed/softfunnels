@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Block;
 use App\Models\Client;
 use App\Models\Form;
 use App\Models\User;
@@ -184,5 +185,46 @@ class ClientsController extends Controller
         session()->flash('success', 'Le Client a été bien supprimé!');
         return back();
     }
+
+            public function editbloq($id)
+            {
+            $block = Block::find($id);
+
+            // Assuming you have a view called 'edit.blade.php'
+            return view('blocks.modify', compact('block'));
+            }
+       
+            public function updatebloq(Request $request, $id)
+            {
+                    //  dd($request->all());
+                    $block = Block::findOrFail($id);
+                  
+                    // Validate the form data
+                    $request->validate([
+                        'titre' => 'required',
+                        'ordre' => 'required',
+                    ]);
+                
+                    $block->titre = $request->titre;
+                    $block->ordre = $request->ordre;
+                    $block->save();
+                
+                    // Update the block with the validated data
+
+                return redirect()->back()->with('success', 'Block updated successfully');
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

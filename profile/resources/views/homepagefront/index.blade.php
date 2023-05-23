@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>CoBsine</title>
+      <title>Soft Pages</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -41,9 +41,10 @@
                 <a class="navbar-brand" href="#">SoftPages</a>
               </div>
               <ul class="nav ml-auto">
-                <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">À Propos</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Contactez-Nous</a></li>
+                <li class="nav-item active"><a class="nav-link" href="{{route('home')}}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#section1">À Propos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#section2">Avantages</a></li>
+                <li class="nav-item"><a class="nav-link" href="#section3">Contactez-Nous</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{route('signupview.index')}}"><span class="glyphicon glyphicon-user"></span> Inscription</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{route('signinn.index')}}"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
               </ul>
@@ -62,7 +63,7 @@
                               <div class="container">
                                  <div class="banner_main">
                                     <h3 class="banner_taital">Parce que vous méritez une meilleure plateforme de Landing Pages !</h3>
-                                    <p class="banner_text">It is a long established fact that a reader will be distracted by the readable content of a page when</p>
+                                    <p class="banner_text">Offrez à votre entreprise une plateforme de landing pages exceptionnelle !</p>
                                     <div class="btn_main">
                                        <div class="contact_bt active "><a href="#">Contact Us</a></div>
                                        <div class="readmore_bt"><a href="#">Read More</a></div>
@@ -74,7 +75,7 @@
                               <div class="container">
                                  <div class="banner_main">
                                     <h3 class="banner_taital">Parce que vous méritez une meilleure plateforme de Landing Pages !</h3>
-                                    <p class="banner_text">It is a long established fact that a reader will be distracted by the readable content of a page when</p>
+                                    <p class="banner_text">Offrez à votre entreprise une plateforme de landing pages exceptionnelle !</p>
                                     <div class="btn_main">
                                        <div class="contact_bt active "><a href="#">Contact Us</a></div>
                                        <div class="readmore_bt"><a href="#">Read More</a></div>
@@ -86,7 +87,7 @@
                               <div class="container">
                                  <div class="banner_main">
                                     <h3 class="banner_taital">Parce que vous méritez une meilleure plateforme de Landing Pages !</h3>
-                                    <p class="banner_text">It is a long established fact that a reader will be distracted by the readable content of a page when</p>
+                                    <p class="banner_text">Offrez à votre entreprise une plateforme de landing pages exceptionnelle !</p>
                                     <div class="btn_main">
                                        <div class="contact_bt active "><a href="#">Contact Us</a></div>
                                        <div class="readmore_bt"><a href="#">Read More</a></div>
@@ -98,7 +99,7 @@
                               <div class="container">
                                  <div class="banner_main">
                                     <h3 class="banner_taital">Parce que vous méritez une meilleure plateforme de Landing Pages !</h3>
-                                    <p class="banner_text">It is a long established fact that a reader will be distracted by the readable content of a page when</p>
+                                    <p class="banner_text">Offrez à votre entreprise une plateforme de landing pages exceptionnelle !</p>
                                     <div class="btn_main">
                                        <div class="contact_bt active "><a href="#">Contact Us</a></div>
                                        <div class="readmore_bt"><a href="#">Read More</a></div>
@@ -110,7 +111,7 @@
                               <div class="container">
                                  <div class="banner_main">
                                     <h3 class="banner_taital">Parce que vous méritez une meilleure plateforme de Landing Pages !</h3>
-                                    <p class="banner_text">It is a long established fact that a reader will be distracted by the readable content of a page when</p>
+                                    <p class="banner_text">Offrez à votre entreprise une plateforme de landing pages exceptionnelle !</p>
                                     <div class="btn_main">
                                        <div class="contact_bt active "><a href="#">Contact Us</a></div>
                                        <div class="readmore_bt"><a href="#">Read More</a></div>
@@ -129,7 +130,7 @@
       <!--header section end -->
       <!--about section start -->
       <div class="about_section layout_padding">
-         <div class="container">
+         <div class="container" id="section1">
             <h1 class="about_taital">À PROPOS</h1>
             <p class="about_text">Notre service de création de pages de destination est conçu pour vous aider à capturer l'attention de vos visiteurs et à les convertir en clients.</p>
             <div class="about_section_2">
@@ -197,7 +198,7 @@
       <!-- services section end --> --}}
       <!-- blog section start -->
       <div class="blog_section layout_padding">
-         <div class="container">
+         <div class="container" id="section2">
             <div class="row">
                <div class="col-md-6">
                   <div class="blog_img"><img src="{{ asset('homepagefront/images/Filter-rafiki.svg')}}"></div>
@@ -226,7 +227,7 @@
       <!-- contact section start -->
       <br><br>
       <div class="contact_section layout_padding">
-         <div class="container">
+         <div class="container" id="section3">
             <h3 class="contact_taital">Contactez Nous</h3>
             <div class="contact_section_2 layout_padding">
                <div class="row">
@@ -256,33 +257,33 @@
             <ol class="carousel-indicators">
                <li data-target="#my_carousel" data-slide-to="0" class="active"></li>
                <li data-target="#my_carousel" data-slide-to="1"></li>
-               <li data-target="#my_carousel" data-slide-to="2"></li>
+               {{-- <li data-target="#my_carousel" data-slide-to="2"></li> --}}
             </ol>
             <div class="carousel-inner">
                <div class="carousel-item active">
                   <div class="container">
-                     <h1 class="testimonial_taital">Testimonial</h1>
-                     <p class="testimonial_text">majority have suffered alteration in some form, by injected humour, or </p>
+                     <h1 class="testimonial_taital">Témoignage</h1>
+                     <p class="testimonial_text">Découvrez les témoignages authentiques de nos clients satisfaits, partageant leur expérience de notre produit/service et comment cela a considérablement amélioré leur présence en ligne</p>
                      <div class="testimonial_section_2">
                         <div class="row">
                            <div class="col-md-6">
                               <div class="testimonial_box">
                                  <div class="jonimo_taital_main">
-                                    <h4 class="jonimo_text">Jonimo</h4>
+                                    <h4 class="jonimo_text">Sophie, entrepreneuse</h4>
                                     <div class="quick_icon"><img src="{{ asset('homepagefront/images/quick-icon.png')}}"></div>
                                     <div class="quick_icon_1"><img src="{{ asset('homepagefront/images/quick-icon1.png')}}"></div>
                                  </div>
-                                 <p class="dummy_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there</p>
+                                 <p class="dummy_text">Depuis que j'ai commencé à utiliser cette plateforme de landing pages, mes taux de conversion ont explosé ! J'ai pu créer des pages d'accueil percutantes en quelques minutes seulement, sans avoir besoin de compétences techniques. Cela a vraiment boosté mon activité en ligne. Merci pour cette solution facile à utiliser et efficace !</p>
                               </div>
                            </div>
                            <div class="col-md-6">
                               <div class="testimonial_box">
                                  <div class="jonimo_taital_main">
-                                    <h4 class="jonimo_text">Mark Duo</h4>
+                                    <h4 class="jonimo_text">Marc, responsable marketing</h4>
                                     <div class="quick_icon"><img src="{{ asset('homepagefront/images/quick-icon.png')}}"></div>
                                     <div class="quick_icon_1"><img src="{{ asset('homepagefront/images/quick-icon1.png')}}"></div>
                                  </div>
-                                 <p class="dummy_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there</p>
+                                 <p class="dummy_text">Notre équipe avait besoin d'une solution de landing pages rapide et sécurisée pour nos campagnes publicitaires. Grâce à cette plateforme, nous avons pu créer et déployer des pages d'accueil personnalisées en un rien de temps. La variété des fonctionnalités et des modèles disponibles nous a permis de nous démarquer et d'obtenir des résultats remarquables. Je recommande vivement cette plateforme à tous les marketeurs en quête de performance.</p>
                               </div>
                            </div>
                         </div>
@@ -291,38 +292,38 @@
                </div>
                <div class="carousel-item">
                   <div class="container">
-                     <h1 class="testimonial_taital">Testimonial</h1>
-                     <p class="testimonial_text">majority have suffered alteration in some form, by injected humour, or </p>
-                     <div class="testimonial_section_2">
+                     <h1 class="testimonial_taital">Témoignage</h1>
+                     <p class="testimonial_text">Découvrez les témoignages authentiques de nos clients satisfaits, partageant leur expérience de notre produit/service et comment cela a considérablement amélioré leur présence en ligne</p>
+                    <div class="testimonial_section_2">
                         <div class="row">
                            <div class="col-md-6">
                               <div class="testimonial_box">
                                  <div class="jonimo_taital_main">
-                                    <h4 class="jonimo_text">Jonimo</h4>
+                                    <h4 class="jonimo_text">Thomas, consultant en marketing digital</h4>
                                     <div class="quick_icon"><img src="{{ asset('homepagefront/images/quick-icon.png')}}"></div>
                                     <div class="quick_icon_1"><img src="{{ asset('homepagefront/images/quick-icon1.png')}}"></div>
                                  </div>
-                                 <p class="dummy_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there</p>
+                                 <p class="dummy_text">En tant que consultant, je recherche constamment des outils qui me permettent de fournir des résultats tangibles à mes clients. Cette plateforme de landing pages est devenue un incontournable dans ma boîte à outils. Sa flexibilité, sa facilité d'utilisation et son support client exceptionnel en font une valeur sûre. Je peux créer des pages d'accueil hautement personnalisées qui convertissent, tout en gagnant du temps et en maximisant mon retour sur investissement. Je recommande chaudement cette solution à tous mes collègues du marketing.</p>
                               </div>
                            </div>
                            <div class="col-md-6">
                               <div class="testimonial_box">
                                  <div class="jonimo_taital_main">
-                                    <h4 class="jonimo_text">Mark Duo</h4>
+                                    <h4 class="jonimo_text">Alice, propriétaire d'un site e-commerce </h4>
                                     <div class="quick_icon"><img src="{{ asset('homepagefront/images/quick-icon.png')}}"></div>
                                     <div class="quick_icon_1"><img src="{{ asset('homepagefront/images/quick-icon1.png')}}"></div>
                                  </div>
-                                 <p class="dummy_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there</p>
+                                 <p class="dummy_text">Je cherchais un moyen simple et efficace de promouvoir mes produits en ligne. Cette plateforme de landing pages a été une véritable révélation ! J'ai pu créer des pages d'accueil attrayantes, optimisées pour la conversion, sans avoir à me soucier de la sécurité ou de la compatibilité mobile. Depuis que j'utilise cette solution, mes ventes ont augmenté de façon significative. C'est un investissement qui en vaut vraiment la peine !</p>
                               </div>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
-               <div class="carousel-item">
+               {{-- <div class="carousel-item">
                   <div class="container">
-                     <h1 class="testimonial_taital">Testimonial</h1>
-                     <p class="testimonial_text">majority have suffered alteration in some form, by injected humour, or </p>
+                     <h1 class="testimonial_taital">Témoignage</h1>
+                     <p class="testimonial_text">Découvrez les témoignages authentiques de nos clients satisfaits, partageant leur expérience de notre produit/service et comment cela a considérablement amélioré leur présence en ligne</p>
                      <div class="testimonial_section_2">
                         <div class="row">
                            <div class="col-md-6">
@@ -348,7 +349,7 @@
                         </div>
                      </div>
                   </div>
-               </div>
+               </div> --}}
             </div>
          </div>
       </div>
@@ -357,24 +358,24 @@
       <div class="footer_section layout_padding">
          <div class="container">
             <div class="location_main">
-               <div class="location_text"><img src="{{asset('homepagefront/images/map-icon.png')}}"><span class="padding_left_10"><a href="#">Location</a></span></div>
-               <div class="location_text center"><img src="{{asset('homepagefront/images/call-icon.png')}}"><span class="padding_left_10"><a href="#">Call ; 01 1234567890</a></span></div>
-               <div class="location_text right"><img src="{{asset('homepagefront/images/mail-icon.png')}}"><span class="padding_left_10"><a href="#">demo@gmail.com</a></span></div>
+               <div class="location_text"><img src="{{asset('homepagefront/images/map-icon.png')}}"><span class="padding_left_10"><a href="#section3">Location</a></span></div>
+               <div class="location_text center"><img src="{{asset('homepagefront/images/call-icon.png')}}"><span class="padding_left_10"><a href="#">Appeler : +212 (0) 5 20 303 483 </a></span></div>
+               <div class="location_text right"><img src="{{asset('homepagefront/images/mail-icon.png')}}"><span class="padding_left_10"><a href="#">info@softsevenart.com</a></span></div>
             </div>
             <div class="footer_section_2">
                <div class="row">
                   <div class="col-lg-4">
-                     <h2 class="footer_taital">About</h2>
-                     <p class="footer_text">There are many variations of passages of Lorem Ipsum available, but the majority havThere are many variations of passages of Lorem Ipsum available, but the majority hav</p>
+                     <h2 class="footer_taital">SoftPages</h2>
+                     <p class="footer_text">Générez des landing pages simplement et en toute sécurité avec notre service. Créez des pages attrayantes et efficaces sans effort, grâce à notre interface. Profitez de fonctionnalités avancées pour personnaliser votre page et capturer l'attention de vos visiteurs. Avec notre solution, la création de landing pages n'a jamais été aussi facile et sécurisée. Essayez notre service dès aujourd'hui et optimisez votre conversion en ligne.</p>
                   </div>
                   <div class="col-lg-4">
-                     <h2 class="footer_taital">Services Link</h2>
-                     <p class="footer_text">There are many variations of passages of Lorem Ipsum available, but the majority havThere are many variations of passages of Lorem Ipsum available, but the majority hav</p>
+                     <h2 class="footer_taital">Services</h2>
+                     <p class="footer_text">Nos services vous offrent la possibilité de créer des landing pages facilement et en toute sécurité.</p>
                   </div>
                   <div class="col-lg-4">
-                     <h2 class="footer_taital">Subscribe</h2>
-                     <input type="text" class="Enter_text" placeholder="Enter Your Email" name="Enter Your Email">
-                     <div class="subscribe_bt"><a href="#">Subscribe</a></div>
+                     <h2 class="footer_taital">Abonnez-vous</h2>
+                     <input type="text" class="Enter_text" placeholder="Entrer Votre Email" name="Enter Your Email">
+                     <div class="subscribe_bt"><a href="#">Abonnez-Vous</a></div>
                      <div class="social_icon">
                         <ul>
                            <li><a href="#"><img src="{{ asset('homepagefront/images/fb-icon.png')}}"></a></li>
@@ -393,7 +394,7 @@
       <!-- copyright section start -->
       <div class="copyright_section">
          <div class="container">
-            <p class="copyright_text">Copyright 2023 All Rights Reserved.<a href="#"> Free  html Templates</a></p>
+            <p class="copyright_text">© Copyright 2023  <a href="{{route('home')}}">| SoftPages</a></p>
          </div>
       </div>
       <!-- copyright section end -->

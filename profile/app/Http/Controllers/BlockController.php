@@ -76,4 +76,7 @@ class BlockController extends Controller
          return view('wysiwyg.edit');
      }
 
+
+     
+
 }

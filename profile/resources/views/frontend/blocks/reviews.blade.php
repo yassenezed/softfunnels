@@ -1,6 +1,6 @@
  <!-- Blog Grid Section -->
  <div class="bg-gray-100 my-9" style="flex: auto;">
-    <div class="container content-space-1 content-space-t-md-4 content-space-b-md-3">
+    <div class="container content-space-1 content-space-t-md-4 content-space-b-md-3" id="sect{{$block->id}}">
         <!-- Title -->
       <div class="w-md-80 w-lg-60 text-center mx-md-auto mb-9">
         <br>

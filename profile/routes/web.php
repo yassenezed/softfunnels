@@ -15,10 +15,15 @@ use App\Http\Controllers\CommandesController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Blocks\OrderblockController;
 use App\Http\Controllers\ClientsController;
 use App\Http\Controllers\SupportController;
 
 
+// Catch-all route for 404 errors Redirect all 404 Pages To Home
+Route::fallback(function () {
+    return redirect()->route('home');
+});
 
 Route::get('/home', [backadminController::class,'dashboard'])->name('backadmin.dashboard');
 Route::get('/', function () {
@@ -150,3 +155,16 @@ Route::get('/clients/showall/{id}', [ClientsController::class, 'showall'])->name
 Route::get('/commandes/edit/{forms}/', [ClientsController::class, 'edit'])->name('commandes.edit');
 Route::put('/commandes/{forms}', [ClientsController::class, 'update'])->name('commandes.update');
 Route::get('/commandes/{forms}/delete', [ClientsController::class, 'deletecommandes'])->name('commandes.delete');
+
+
+
+///Modifier le nom d'un block
+
+Route::get('/bloq/{bloq}/editbloq', [ClientsController::class,'editbloq'])->name('bloq.edit');
+Route::put('/blocks/{id}', [ClientsController::class, 'updatebloq'])->name('bloq.update');
+
+
+
+
+//Ordering the blocks
+Route::post('/update-block-order', [OrderblockController::class,'updateOrder'])->name('updateblock');

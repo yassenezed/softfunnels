@@ -27,7 +27,7 @@
                     <a href="{{ route('landingpageslist.index') }}" class="nav-item nav-link{{ request()->is('landingpages') ? ' active' : '' }}">
                         <i class="fa-regular fa-file-lines"></i> Mes Pages
                     </a>
-                    <a href="{{route('commandes.show')}}"class="nav-item nav-link{{ request()->is('commandes') ? ' active' : '' }}"><i class="fa-solid fa-sack-dollar"></i>Revenues</a>
+                    <a href="{{route('commandes.show')}}" class="nav-item nav-link{{ request()->is('commandes') ? ' active' : '' }}"><i class="fa-solid fa-sack-dollar"></i>Revenues</a>
                     @php
                             $user_id = session()->get('user_id');
                             $user = \App\Models\User::where('email', $user_id)->first();
@@ -35,9 +35,8 @@
                     @endphp
 
                         @if ($role === 'admin') 
-                            <a href="{{ route('users.show') }}" class="nav-item nav-link">
-                                <i class="fa-sharp fa-light fa-users"></i>
-                                Utlisateurs
+                            <a href="{{ route('users.show') }}" class="nav-item nav-link{{ request()->is('utilisateurs') ? ' active' : '' }}">
+                                <i class="fa-solid fa-users-viewfinder"></i>Utlisateurs
                             </a>
                         @endif
                     <a href="{{route('clients.show')}}" class="nav-item nav-link{{ request()->is('clients') ? ' active' : '' }}"><i class="fa fa-user"></i>Clients</a>

@@ -1,6 +1,6 @@
 @if (json_decode($block->details, true))
 <!-- Contact Us Form Section -->
-<div class="container  content-space-1 content-space-t-md-4 content-space-b-md-3">
+<div class="container  content-space-1 content-space-t-md-4 content-space-b-md-3" id="sect{{$block->id}}">
   <!-- Title -->
   <div class="w-md-80 w-lg-60 text-center mx-md-auto mb-9">
     @foreach (json_decode($block->details, true) as $detail)

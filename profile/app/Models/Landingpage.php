@@ -21,6 +21,7 @@ class Landingpage extends Model
 
     public function blocks()
     {
-        return $this->hasMany(Block::class);
+        //Returnin The Order as it should be
+        return $this->hasMany(Block::class)->orderBy('ordre');
     }
 }

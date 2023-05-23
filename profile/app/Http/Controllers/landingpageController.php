@@ -74,6 +74,7 @@ class landingpageController extends Controller
     public function show($id)
     {
         $landingpage = Landingpage::with('blocks')->findOrFail($id);
+        //in blocks model we added something to show the page in the order of the blocks
         $landingpage->visitors += 1;
         $landingpage->save();
         return view('frontend.landingpage', compact('landingpage'));
