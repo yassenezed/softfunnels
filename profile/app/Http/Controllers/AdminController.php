@@ -17,13 +17,23 @@ class AdminController extends Controller
     public function showusers()
     {
         if (!session()->has('user_id')) {
-            session()->flash('error', 'Vous deveriez se-connecter!');
+            session()->flash('error', 'Vous devriez vous connecter!');
             return redirect()->route('signin.index');        
         }
-            $users = User::orderByDesc('id')->paginate(10);
-            return view('users.allusers', ['users' => $users]);
-
+        
+        $loggedInUserEmail = session('user_id');
+        $loggedInUser = User::where('email', $loggedInUserEmail)->first();
+        
+        if (!$loggedInUser) {
+            session()->flash('error', 'Utilisateur introuvable!');
+            return redirect()->route('signin.index');
         }
+        
+        $users = User::where('id', '!=', $loggedInUser->id)->orderByDesc('id')->paginate(10);
+        
+        return view('users.allusers', ['users' => $users]);
+    }
+    
         public function softdelete($id)
         {
             $user = User::find($id);

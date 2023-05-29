@@ -76,6 +76,14 @@
         @endif
         {{-- <br> --}}
       {{-- </div> --}}
+      @if ($block->type == "hero")
+            @include('frontend.blocks.hero', compact('block', "landingpage"))
+        @endif
+        {{-- <br> --}}
+      {{-- </div> --}}
+        @if ($block->type == "cta")
+            @include('frontend.blocks.cta', compact('block', "landingpage"))
+        @endif
       
 
     @endforeach

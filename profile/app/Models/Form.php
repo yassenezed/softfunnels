@@ -12,6 +12,7 @@ class Form extends Model
         'fullname',
         'email',
         'phone',
+        'state',
         'company',
         'adress',
         'notes'

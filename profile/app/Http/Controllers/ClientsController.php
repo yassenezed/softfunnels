@@ -19,12 +19,13 @@ class ClientsController extends Controller
         }
         $user_id = session()->get('user_id');
         $user = User::where('email', $user_id)->first();
-        // $role = $user->role;
+        $role = $user->role;
+        // dd($role);
 
-        // if ($role === 'admin') {
-        //     $forms = Form::orderByDesc('id')->paginate(10);
-        //     return view('commandes.showcommandes', ['forms' => $forms]);
-        // }
+        if ($role === 'admin') {
+            $clients = Client::orderByDesc('id')->paginate(10);
+            return view('clients.list' , ['clients' => $clients]);
+        }
        
         // Get the landing pages of the user
         
@@ -123,7 +124,7 @@ class ClientsController extends Controller
         ]);
         
         $clients->fill($data)->save();
-        return redirect()->route('clients.list', $clients->id);
+        return redirect()->route('clients.show', $clients->id);
    
     }
     public function destroyclient(Client $clients)
@@ -160,7 +161,8 @@ class ClientsController extends Controller
         $email = $request->email;
         $adress = $request->adress;  
         $notes = $request->notes; 
-        $company = $request->company;        
+        $company = $request->company;
+        $state = $request->state;        
        
       
         $data = [
@@ -170,6 +172,7 @@ class ClientsController extends Controller
             'adress' => $adress,
             'notes' => $notes,
             'company' => $company,
+            'state' => $state,
 
         ];
         

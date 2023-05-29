@@ -46,16 +46,17 @@
         <!-- Sign In Start -->
         <div class="container-fluid">
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
-                <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4" style="flex: auto">
+                <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                     <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <a href="index.html" class="">
-                                <h3 class="text-primary">SoftFunnels</h3>
+                                <h3 class="text-primary">SoftPages</h3>
                             </a>
+                        </div>
+                        <div><h6>Connectez-Vous</h6></div>
                     <form method="POST" action="{{ route ('signin.index')}}">
                     @csrf
-                            <h3>Connectez-Vous</h3>
-                        </div>
+                        
                         <div class="form-floating mb-3">
                             <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" value="{{old('email')}}"required>
                             <label for="floatingInput">Email address</label>
@@ -68,8 +69,8 @@
                             <label for="floatingPassword">Password</label>
                         </div>
                     
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Connectez Vous</button>
-                        <p class="text-center mb-0">Don't have an Account? <a href="{{route('signupview.index')}}">Inscrivez-Vous</a></p>
+                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Connexion</button>
+                        <p class="text-center mb-0">Vous n'avez pas un compte? <a href="{{route('signupview.index')}}">Inscription</a></p>
                     </form>
                     </div>
                 </div>

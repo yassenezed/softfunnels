@@ -20,10 +20,9 @@ gap: 10px;">
         <th>Etat</th>
         <th>Visiteurs</th>
         <th>Prix</th>
-        <th colspan="4" class="text-center">Les Actions</th>
+        <th class="text-center">Les Actions</th>
      </tr>
-    @foreach ($landingpages as $lp)
-         
+    @foreach ($landingpages as $lp)  
      <tr>
          <td>{{$lp->id}}</td>
          <td>{{$lp->titre}}</td>
@@ -33,29 +32,11 @@ gap: 10px;">
          <td>{{$lp->visitors}}</td>
          <td>{{$lp->price}}MAD</td>
          <td>
-            <div>
-                <a href="{{ route('blockslist.index', [ 'page_id' => $lp->id] ) }}" class="btn btn-primary"> 
-                    <i class="fa-solid fa-screwdriver-wrench"></i>
-
-                </a>
-            </div>
-        </td>
-        <td>
-            <div>
+                <a href="{{ route('blockslist.index', [ 'page_id' => $lp->id] ) }}" class="btn btn-primary"><i class="fa-solid fa-screwdriver-wrench"></i></a>
                 <a href="{{ route('editlp.index', $lp->id) }}" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
-            </div>
-            </td>
-        <td>
-            <div>
                 <a href="{{ route('landingpage.show', $lp->id) }}"class="btn btn-success"><i class="fa-solid fa-eye"></i></a>
-            </div>
-        </td>
-        <td>
-            <div>
                 <a href="{{ route('destroylp.index', $lp->id) }}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
-
-            </div>
-        </td>     
+        </td> 
     </tr> 
     </form>
     @endforeach

@@ -140,6 +140,18 @@
                     <img class="img-fluid" src="{{ asset('img/typesof/navbar.jpg') }}" alt="navbar" width="90" height="90"> 
                   </label>
                 </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="type" value="hero" id="hero">
+                  <label class="form-check-label" for="hero">
+                    <img class="img-fluid" src="{{ asset('img/typesof/slide.png') }}" alt="hero" width="90" height="90"> 
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="type" value="cta" id="cta">
+                  <label class="form-check-label" for="cta">
+                    <img class="img-fluid" src="{{ asset('img/typesof/slide.png') }}" alt="hero" width="90" height="90"> 
+                  </label>
+                </div>
               </div>
 
           </form>

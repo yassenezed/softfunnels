@@ -8,6 +8,7 @@ use App\Http\Controllers\Blocks\TrustController;
 use App\Http\Controllers\Blocks\Type1Controller;
 use App\Http\Controllers\Blocks\Type2Controller;
 use App\Http\Controllers\Blocks\CarousselController;
+use App\Http\Controllers\Blocks\CtaController;
 use App\Http\Controllers\Blocks\FaqController;
 use App\Http\Controllers\Blocks\IconPlusTextController;
 use App\Http\Controllers\Blocks\VideoController;
@@ -51,6 +52,10 @@ class BuildBlocks extends Controller
             return view('blocks.form', compact('type','id', 'block'));
         case 'navbar':
             return (new NavbarController)->view($request, $type, $id, $block);
+        case 'hero':
+            return view('blocks.hero', compact('type','id', 'block'));
+        case 'cta':
+            return (new CtaController)->view($request, $type, $id, $block);
         // add more cases for other types as needed
         default:
             abort(404);
@@ -82,6 +87,10 @@ class BuildBlocks extends Controller
                 return (new FormController)->store($request, $id);
             case 'navbar':
                 return (new NavbarController)->store($request, $id);
+            case 'hero':
+                return (new HeroController)->store($request, $id);
+            case 'cta':
+                return (new CtaController)->store($request, $id);
             // add more cases for other types as needed
             default:
                 abort(404);

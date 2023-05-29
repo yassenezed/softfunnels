@@ -19,7 +19,7 @@ gap: 10px;">
         <th>Email</th>
         <th>Numero</th>
         <th>Societe</th>
-        <th colspan="2" class="text-center">Les Actions</th>
+        <th >Les Actions</th>
      </tr>
     @foreach ($clients as $client)
      <tr>
@@ -31,15 +31,10 @@ gap: 10px;">
          <td>{{$client->company}}</td>
        
         <td>
-            <div>
                 <a href="{{ route('clients.edit', $client->id) }}" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
-            </div>
-        </td>
-        <td>
-            <div>
                 <a href="{{ route('clients.destroy', $client->id) }}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
-            </div>
-        </td> 
+        </td>
+        
     @endforeach
         
 </table>

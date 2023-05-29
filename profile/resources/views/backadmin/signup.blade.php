@@ -45,14 +45,14 @@
         <!-- Sign Up Start -->
         <div class="container-fluid">
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
-                <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4" style="flex: auto">
+                <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                     <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                         <div class="d-flex align-items-center justify-content-between mb-3" style="margin-bottom: 20px;">
                             <a href="{{route('home.index')}}">
-                                <h3 class="text-primary">SoftFunnels</h3>
+                                <h3 class="text-primary">SoftPages</h3>
                             </a>
-                            <h3>Inscrivez-Vous</h3>
                         </div>
+                        <div><h6>Inscription</h6></div>
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -92,7 +92,7 @@
                     
                         <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Inscrivez-Vous</button>
                     </form>
-                        <p class="text-center mb-0">Si vous êtes déjà inscrivez <a href="{{route ('signin.index')}}">Connectez-Vous</a></p>
+                        <p class="text-center mb-0">Si vous êtes déjà inscrivez <a href="{{route ('signin.index')}}">Connexion</a></p>
                     </div>
                 </div>
             </div>

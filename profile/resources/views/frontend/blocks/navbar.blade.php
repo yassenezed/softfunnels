@@ -23,7 +23,7 @@
 
 <header id="header" class="navbar navbar-expand-lg navbar-light navbar-end bg-white">
     <div class="container">
-        <a class="navbar-brand" href="./index.html" aria-label="Space">
+        <a class="navbar-brand" href="#" aria-label="Space">
                 <img src="{{ asset('storage/'.$details[0]["img"]) }}" alt="Image">
         </a>
         <nav class="navbar navbar-inverse">

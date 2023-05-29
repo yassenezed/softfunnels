@@ -78,7 +78,7 @@
                         <select class="form-select" name="details[{{ $index }}][idheader1]">
                             <option value="">Choisir une Section</option>
                             @foreach ($blocks as $block)
-                            <option value="{{$block->id}}">{{$block->titre}}</option>
+                            <option value="{{$block->id}}" @if( $detail['idheader1'] == $block->id) selected @endif >{{$block->titre}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -95,7 +95,7 @@
                             <option value="">Choisir une Section</option>
 
                             @foreach ($blocks as $block)
-                            <option value="{{$block->id}}">{{$block->titre}}</option>
+                            <option value="{{$block->id}}" @if( $detail['idheader2'] == $block->id) selected @endif >{{$block->titre}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -111,9 +111,8 @@
                         <label for="" class="form-label">Deplace Vers:</label>
                         <select class="form-select" name="details[{{ $index }}][idheader3]">
                             <option value="">Choisir une Section</option>
-
                             @foreach ($blocks as $block)
-                            <option value="{{$block->id}}">{{$block->titre}}</option>
+                            <option value="{{$block->id}}" @if( $detail['idheader3'] == $block->id) selected @endif >{{$block->titre}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -131,7 +130,7 @@
                             <option value="">Choisir une Section</option>
 
                             @foreach ($blocks as $block)
-                            <option value="{{$block->id}}">{{$block->titre}}</option>
+                            <option value="{{$block->id}}" @if( $detail['idheader4'] == $block->id) selected @endif >{{$block->titre}}</option>
                             @endforeach
                         </select>
                     </div>
