@@ -11,11 +11,11 @@ class SupportController extends Controller
    
     public function show()
     {
-        if (!session()->has('user_id')) {
-            session()->flash('error', 'Vous devriez vous connecter!');
-            return redirect()->route('signin.index');        
-        }
-        $userEmail = session()->get('user_id');
+        // if (!session()->has('user_id')) {
+        //     session()->flash('error', 'Vous devriez vous connecter!');
+        //     return redirect()->route('signin.index');        
+        // }
+        $userEmail = auth()->user()->email;
         $user = User::where('email', $userEmail)->firstOrFail();
         if ($user->role === 'admin') {
             $messages = Message::orderByDesc('id')->paginate(10);

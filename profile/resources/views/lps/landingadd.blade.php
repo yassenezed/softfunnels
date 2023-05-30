@@ -39,21 +39,14 @@
           {{$message}}
         </div>
   @enderror
-  <div class="form-group mb-3">
-    <label for="slug">Prix</label>
-    <textarea class="form-control" id="price" name="price" rows="3" placeholder="Saisissez le Prix"></textarea>
-</div>
-@error('price')
-      <div class="text-danger">
-        {{$message}}
-      </div>
-@enderror
+  
   <div class="form-group mb-3">
     <label for="state">État : </label>
     <select name="state">
       <option value="Active">Active</option>
       <option value="Inactive">Inactive</option>
     </select>
+    
 <br>
 <br>
     <button type="submit" class="btn btn-primary">Ajouter</button>

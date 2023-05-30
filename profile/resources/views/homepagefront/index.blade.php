@@ -38,7 +38,10 @@
          <nav class="navbar navbar-inverse">
             <div class="container-fluid">
               <div class="navbar-header">
-                <a class="navbar-brand" href="#">SoftPages</a>
+               <img src="{{asset('img/navbar/softpages.png')}}" alt="" class="src" style="
+               width: 220px;
+               height: auto;
+           ">  
               </div>
               <ul class="nav ml-auto">
                 <li class="nav-item active"><a class="nav-link" href="{{route('home')}}">Home</a></li>
@@ -129,7 +132,9 @@
       </div>
       <!--header section end -->
       <!--about section start -->
-      <div class="about_section layout_padding">
+      <div class="about_section layout_padding" style="
+      border-bottom: 11px solid #1383a2;
+  ">
          <div class="container" id="section1">
             <h1 class="about_taital">À PROPOS</h1>
             <p class="about_text">Notre service de création de pages de destination est conçu pour vous aider à capturer l'attention de vos visiteurs et à les convertir en clients.</p>
@@ -147,6 +152,38 @@
             </div>
          </div>
       </div>
+
+       <!-- Pricing -->
+       <div class="card mb-5 mb-sm-0">
+         <!-- Header -->
+         <header class="card-header text-center p-5">
+           <h4 class="h6 text-primary mb-3">Basique</h4>
+           <span class="d-block">
+             <span class="display-4 text-dark">
+               90 MAD
+             </span>
+             <span class="d-block text-secondary font-size-14">par mois</span>
+           </span>
+         </header>
+         <!-- End Header -->
+
+         <!-- Content -->
+         <div class="card-body p-5">
+           <ul class="list-unstyled mb-4">
+             <li class="font-size-14 py-2">Génération sécurisée de vos landing pages</li>
+             <li class="font-size-14 py-2">Génération sécurisée de vos blocs</li>
+             <li class="font-size-14 py-2">Réception sécurisée des formulaires clients</li>
+             <li class="font-size-14 py-2">Ajout facile des clients en un seul clic</li>
+             <li class="font-size-14 py-2">Support client réactif</li>
+
+           </ul>
+
+           <a href="{{ route('signupview.index', ['id_pack' => '1', 'price' => '90', 'type' => 'Basique' , 'quantity' => '1' ]) }}" class="href">
+            <button type="button" class="btn btn-block btn-sm btn-primary">Acheter Maintenant</button>
+          </a>         </div>
+         <!-- End Content -->
+       </div>
+       <!-- End Pricing -->
       <!--about section end -->
       {{-- <!-- services section start -->
       <div class="services_section layout_padding">

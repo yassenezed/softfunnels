@@ -17,7 +17,7 @@ class CommandesController extends Controller
             session()->flash('error', 'Vous deveriez se-connecter!');
             return redirect()->route('signin.index');        
         }
-        $user_id = session()->get('user_id');
+        $user_id = auth()->user()->email;
         $user = User::where('email', $user_id)->first();
         $role = $user->role;
 
@@ -27,7 +27,7 @@ class CommandesController extends Controller
         }
        
         // Get the landing pages of the user
-        $user_id = session()->get('user_id');
+        $user_id = auth()->user()->email;
         $user = User::where('email', $user_id)->first();
         $landingpages = Landingpage::where('user_id', $user->id)->get();
         

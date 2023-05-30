@@ -13,8 +13,9 @@ class Landingpage extends Model
         'description',
         'state',
         'slug',
+        // 'type',
         'visitors',
-        'price',
+        // 'price',
         'user_id',
     ];
     
@@ -24,4 +25,11 @@ class Landingpage extends Model
         //Returnin The Order as it should be
         return $this->hasMany(Block::class)->orderBy('ordre');
     }
+
+    public function forms()
+    {
+        //Returnin The Order as it should be
+        return $this->hasMany(Form::class, 'landing_page_id')->orderByDesc('created_at');
+    }
+
 }

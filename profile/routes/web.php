@@ -17,15 +17,27 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Blocks\OrderblockController;
 use App\Http\Controllers\ClientsController;
+use App\Http\Controllers\StripeController;
 use App\Http\Controllers\SupportController;
 
+Route::middleware([ 'auth' ])->group(function () {
+    Route::get('/home', [backadminController::class, 'dashboard'])->name('backadmin.dashboard');   
+    // Route::get('/home', [backadminController::class, 'check']);   
 
-// Catch-all route for 404 errors Redirect all 404 Pages To Home
-Route::fallback(function () {
-    return redirect()->route('home');
+    Route::get('/create_block', [BlockController::class, 'create'])->name('create_block.index');
+
+    // LP CREATIONS - ADDITION
+    Route::get('/landingpages', [landingpageController::class,'landingpageslist'])->name('landingpageslist.index');
+    Route::GET('/landingpages/ajouter', [landingpageController::class,'landingpageajouter'])->name('landingpageajouter.index');
+    Route::POST('/landingpages/storepage', [landingpageController::class,'storelp'])->name('storelp.index');
+
+
 });
+// Catch-all route for 404 errors Redirect all 404 Pages To Home
+// Route::fallback(function () {
+//     return redirect()->route('home');
+// });
 
-Route::get('/home', [backadminController::class,'dashboard'])->name('backadmin.dashboard');
 Route::get('/', function () {
     return view('homepagefront.index');
 })->name('home');
@@ -38,10 +50,6 @@ Route::POST('/connectez-vous', [backadminController::class,'login'])->name('sign
 
 //************************************************//
 
-// LP CREATIONS - ADDITION
-Route::get('/landingpages', [landingpageController::class,'landingpageslist'])->name('landingpageslist.index');
-Route::GET('/landingpages/ajouter', [landingpageController::class,'landingpageajouter'])->name('landingpageajouter.index');
-Route::POST('/landingpages/storepage', [landingpageController::class,'storelp'])->name('storelp.index');
 
 
 // LP UPDATE
@@ -56,7 +64,13 @@ Route::GET('/landingpages/{landingpages}', [deleteController::class,'destroy'])-
 
 // APPERCU
 
-Route::get('/page/{id}', [ landingpageController::class,'show'])->name('landingpage.show');
+// Route::get('/page/{id}', [ landingpageController::class,'show'])->name('landingpage.show');
+
+
+// REDIRECT TO SLUG 
+Route::get('/page/{slug}', [LandingPageController::class, 'show'])->name('landingpage.show');
+
+
 Route::POST('/page/{id}/store', [landingpageController::class,'store'])->name('leads.store');
 //THANK YOU PAGE
 Route::get('/thankyou/{name}', function ($name) {
@@ -66,6 +80,13 @@ Route::get('/thankyou/{name}', function ($name) {
 
 // *********************************************** //
 
+Route::group([ 'middleware' => [ 'auth', 'subscribe' ] ] , function () {
+
+    Route::get('zl', function () {
+        return "welcome";
+    });
+
+});
 
 //BUILD LP WITH BLOCKS
 Route::GET('/blocks/ajouterblock', [BlockController::class,'ajouterblock'])->name('ajouterblock.index');
@@ -79,7 +100,7 @@ Route::get('/blocks/{blocks}', [deleteController::class,'destroyblock'])->name('
 
 
 // Route::get('/landingpage/{id}/create_block', [BlockController::class, 'create'])->name('create_block.index');
-Route::get('/create_block', [BlockController::class, 'create'])->name('create_block.index');
+// Route::get('/create_block', [BlockController::class, 'create'])->name('create_block.index');
 
 // CREATING BLOCKS
 Route::get('/build/{type}/{id}', [BuildBlocks::class, 'build'])->name('build.index');
@@ -168,3 +189,10 @@ Route::put('/blocks/{id}', [ClientsController::class, 'updatebloq'])->name('bloq
 
 //Ordering the blocks
 Route::post('/update-block-order', [OrderblockController::class,'updateOrder'])->name('updateblock');
+
+
+//STRIPE CONTROLLER
+
+Route::get('stripe/checkout', [StripeController::class, 'checkout'])->name('stripe.checkout');
+Route::get('stripe/success', [StripeController::class, 'success'])->name('stripe.success');
+Route::get('stripe/renew', [StripeController::class, 'renew'])->name('stripe.renew');

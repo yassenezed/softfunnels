@@ -94,7 +94,7 @@
       <div class="js-form-message mb-9">
         <div class="js-focus-state input-group form">
           <textarea class="form-control form__input" rows="6" name="notes" 
-                    placeholder="Notes?"
+                    placeholder="Au cas où vous avez choisi un pack, notez-le ici"
                     aria-label="How can we help you?"
                     data-msg="Please enter a reason."
                     data-error-class="u-has-error"

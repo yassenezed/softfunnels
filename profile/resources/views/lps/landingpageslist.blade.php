@@ -15,26 +15,28 @@ gap: 10px;">
      <tr>
         <th>ID</th>
         <th>Titre</th>
+        {{-- <th>Type</th> --}}
         <th>Description</th>
         <th>Lien</th>
         <th>Etat</th>
         <th>Visiteurs</th>
-        <th>Prix</th>
+        {{-- <th>Prix</th> --}}
         <th class="text-center">Les Actions</th>
      </tr>
     @foreach ($landingpages as $lp)  
      <tr>
          <td>{{$lp->id}}</td>
          <td>{{$lp->titre}}</td>
-         <td>{{ Str::limit($lp->description,50) }}</td>
+         {{-- <td>{{$lp->type}}</td> --}}
+          <td>{{ Illuminate\Support\Str::limit($lp->description, 12) }}</td>
          <td>{{$lp->slug}}</td>
          <td>{{$lp->state}}</td>
          <td>{{$lp->visitors}}</td>
-         <td>{{$lp->price}}MAD</td>
+         {{-- <td>{{$lp->price}}MAD</td> --}}
          <td>
                 <a href="{{ route('blockslist.index', [ 'page_id' => $lp->id] ) }}" class="btn btn-primary"><i class="fa-solid fa-screwdriver-wrench"></i></a>
                 <a href="{{ route('editlp.index', $lp->id) }}" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
-                <a href="{{ route('landingpage.show', $lp->id) }}"class="btn btn-success"><i class="fa-solid fa-eye"></i></a>
+                <a href="{{ route('landingpage.show', $lp->slug) }}"class="btn btn-success"><i class="fa-solid fa-eye"></i></a>
                 <a href="{{ route('destroylp.index', $lp->id) }}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
         </td> 
     </tr> 

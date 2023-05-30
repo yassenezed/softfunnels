@@ -10,19 +10,21 @@ use Illuminate\Support\Facades\Session;
 class backadminController extends Controller
 {
     public function dashboard(){ 
-        if (!session()->has('user_id')) {
-            session()->flash('error', 'Vous deveriez se-connecter!');
-            return redirect()->route('signin.index');        
-        }
+        // if (!session()->has('user_id')) {
+        //     session()->flash('error', 'Vous deveriez se-connecter!');
+        //     return redirect()->route('signin.index');        
+        // }
         return view('backadmin.dashboard');
-
     }
+    
     public function show(){
-        
+    
         return view('backadmin.signup');
     }
+
     public function store(Request $request)
     { 
+        
         // dd($request->all());
         $username= $request->username;
         $firstname = $request->firstname;
@@ -40,24 +42,42 @@ class backadminController extends Controller
             'password'=>'required|min:9|max:50|confirmed'
         ]);
         // //Insertion des données
-        User :: create([
+        $user = User :: create([
             'lastname' => $lastname,
             'firstname' => $firstname,
             'email' => $email,
-            'password' =>$hashedpd,
+            'password' => $hashedpd,
             'username' => $username,
         ]);
        
+        $userId = $user->id;
+        
 
-         session()->flash('success', 'Data has been saved successfully!');
-         return redirect()->route('signinn.index');
-         
+        // check if the user in checkout process
+        if (!empty($request->get('price')) && !empty($request->get('id_pack')) ) {
+            $price = $request->get('price');
+            $type = $request->get('type');
+            $id_pack = $request->get('id_pack');
+            $quantity = $request->get('quantity');
 
+            // Redirect to the Stripe payment page with the price
+            return redirect()->route('stripe.checkout', ['userId' => $userId, 'price' => $price, 'id_pack' => $id_pack , 'type' => $type , 'quantity' => $quantity]);
+        }
+
+        //new code
+        auth()->login($user);
+        
+        session()->flash('success', 'Data has been saved successfully!');
+        return redirect()->route('backadmin.dashboard');
+        // return redirect()->route('signinn.index');
     }
+    
+    
     public function page(){
         return view ('backadmin.signin');
-   }
-   public function login(Request $request){
+    }
+
+    public function login(Request $request){
     //    dd($request->all());
        $login= $request->email;
        $password = $request->password;
@@ -89,4 +109,10 @@ class backadminController extends Controller
          return to_route('signin.index');
    }
    
+
+   public function check(){
+
+        dd('check');
+
+   }
 }

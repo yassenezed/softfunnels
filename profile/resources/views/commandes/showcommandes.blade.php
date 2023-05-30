@@ -1,16 +1,16 @@
 @extends('layouts.structure')
 @section('title')
-    Liste des Commandes
+    Liste des Formulaires
 @endsection
 @section('main')
-<h2>Liste des Commandes</h2>
+<h2>Liste des Formulaires</h2>
 <table id="myTable" class="table">
     <tr>
         <th>ID</th>
         <th>Client</th>
         <th>Email</th>
         <th>Tel</th>
-        <th>Montant</th>
+        {{-- <th>Montant</th> --}}
         <th>Page</th>
         <th>Etat</th>
         <th class="text-center">Les Actions</th>
@@ -21,7 +21,7 @@
         <td>{{ $form->fullname }}</td>
         <td>{{ $form->email }}</td>
         <td>{{ $form->phone }}</td>
-        <td>{{ $form->landingpage->price}}</td>
+        {{-- <td>{{ $form->montant}}</td> --}}
         <td>{{ $form->landingpage->titre }}</td>
         <td>{{ Illuminate\Support\Str::limit($form->state, 9) }}</td>
         <td>

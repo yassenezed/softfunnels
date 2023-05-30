@@ -18,7 +18,7 @@ class landingpageController extends Controller
             session()->flash('error', 'Vous devez vous connecter!');
             return redirect()->route('signin.index');        
         }
-        $user_id = session()->get('user_id');
+        $user_id = auth()->user()->email;
         $user = User::where('email', $user_id)->first();
         $role = $user->role;
         
@@ -27,7 +27,7 @@ class landingpageController extends Controller
         return view('lps.landingpageslist',compact('landingpages'));
         }
 
-        $user_id = session()->get('user_id');
+        $user_id = auth()->user()->email;
         $user = User::where('email', $user_id)->first();
         $landingpages = Landingpage::where('user_id', $user->id)->paginate(10);
         return view('lps.landingpageslist', compact('landingpages'));
@@ -43,7 +43,6 @@ class landingpageController extends Controller
         $description = $request->description;
         $slug = $request->slug;
         $state = $request->state;
-        $price = $request->price;
         $id = $request->user_id;
 
 
@@ -51,8 +50,7 @@ class landingpageController extends Controller
         $request->validate([
             'titre'=>'required|min:2',
             'description'=>'required|min:2',
-            'slug'=>'required|min:2'   ,
-            'price'=>'required|min:2'   
+            'slug' => 'required|min:2|unique:landingpages',
 
         ]);
         // dd($request->all());
@@ -63,7 +61,6 @@ class landingpageController extends Controller
             'description' => $description,
             'slug' => $slug,
             'state' => $state,  
-            'price' => $price,
             'user_id' => $id
         ]);
         session()->flash('success', 'Data has been saved successfully!');
@@ -71,14 +68,33 @@ class landingpageController extends Controller
         }
 
 
-    public function show($id)
-    {
-        $landingpage = Landingpage::with('blocks')->findOrFail($id);
-        //in blocks model we added something to show the page in the order of the blocks
-        $landingpage->visitors += 1;
-        $landingpage->save();
-        return view('frontend.landingpage', compact('landingpage'));
+    // public function show($id)
+    // {
+    //     $landingpage = Landingpage::with('blocks')->findOrFail($id);
+    //     //in blocks model we added something to show the page in the order of the blocks
+    //     $landingpage->visitors += 1;
+    //     $landingpage->save();
+    //     return view('frontend.landingpage', compact('landingpage'));
+    // }
+    public function show($slug)
+{
+      // Get the landing page based on the slug and active state
+      $landingpage = Landingpage::where('slug', $slug)
+      ->where('state', 'active')
+      ->with('blocks')
+      ->first();
+
+    if (!$landingpage) {
+        // Redirect to a custom error page or handle the case when the landing page is not found
+        return view('errors.404');
     }
+
+    // Increment the visitors count
+    $landingpage->visitors += 1;
+    $landingpage->save();
+
+    return view('frontend.landingpage', compact('landingpage'));
+}
     public function store(Request $request)
     {
            

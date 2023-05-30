@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>SoftFunnels - Inscrivez-Vous</title>
+    <title>SoftPages - Inscrivez-Vous</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -65,6 +65,12 @@
                         
                     <form action="{{ route ('signup.index') }}" method="POST">
                         @csrf
+
+                        <input type="hidden" name="price" value="{{ request()->query('price') }}">
+                        <input type="hidden" name="type" value="{{ request()->query('type') }}">
+                        <input type="hidden" name="id_pack" value="{{ request()->query('id_pack') }}">
+                        <input type="hidden" name="quantity" value="{{ request()->query('quantity') }}">
+
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" name="firstname" value="{{old('firstname')}}" id="floatingText" placeholder="jhondoe">
                             <label for="floatingText">First Name</label>

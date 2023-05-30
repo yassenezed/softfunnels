@@ -38,7 +38,7 @@
           {{$message}}
         </div>
   @enderror
-  <div class="form-group mb-3">
+  {{-- <div class="form-group mb-3">
     <label for="slug">Prix</label>
     <input type="text" value="{{$landingpages->price}}" class="form-control" id="price" name="price" placeholder="Saisissez le Prix">
 </div>
@@ -46,15 +46,20 @@
       <div class="text-danger">
         {{$message}}
       </div>
-@enderror
+@enderror --}}
   <div class="form-group mb-3">
     <label for="state">État : </label>
     <select name="state" value="{{$landingpages->state}}">
       <option value="Active">Active</option>
       <option value="Inactive">Inactive</option>
     </select>
-<br>
-<br>
+  <div>
+    @error('state')
+      <div class="text-danger">
+        {{$message}}
+      </div>
+@enderror
+<br><br>
     <button type="submit" class="btn btn-primary">Enregistrer</button>
 </form>
 

@@ -9,10 +9,13 @@
 
 
         <!-- Sidebar Start -->
-        <div class="sidebar pe-4 pb-3">
+        <div class="sidebar pb-3">
             <nav class="navbar bg-light navbar-light">
-                <a href="{{route('backadmin.dashboard')}}" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary">Soft Pages</h3>
+                <a href="{{route('backadmin.dashboard')}}" class="navbar-brand mx-4">
+                        <img src="{{asset('img/navbar/softpages.png')}}" alt="" class="src" style="
+                        width: 180px;
+                        height: auto;
+                    "> 
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
@@ -27,11 +30,9 @@
                     <a href="{{ route('landingpageslist.index') }}" class="nav-item nav-link{{ request()->is('landingpages') ? ' active' : '' }}">
                         <i class="fa-regular fa-file-lines"></i> Mes Pages
                     </a>
-                    <a href="{{route('commandes.show')}}" class="nav-item nav-link{{ request()->is('commandes') ? ' active' : '' }}"><i class="fa-solid fa-sack-dollar"></i>Revenues</a>
+                    <a href="{{route('commandes.show')}}" class="nav-item nav-link{{ request()->is('commandes') ? ' active' : '' }}"><i class="fa-brands fa-wpforms"></i>Formulaires</a>
                     @php
-                            $user_id = session()->get('user_id');
-                            $user = \App\Models\User::where('email', $user_id)->first();
-                            $role = $user->role;
+                        $role = auth()->user()->role;
                     @endphp
 
                         @if ($role === 'admin') 

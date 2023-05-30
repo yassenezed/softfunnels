@@ -29,8 +29,9 @@ class AdminController extends Controller
             return redirect()->route('signin.index');
         }
         
-        $users = User::where('id', '!=', $loggedInUser->id)->orderByDesc('id')->paginate(10);
-        
+        $users = User::where('id', '!=', $loggedInUser->id)->orderByDesc('id')->with('packs')->paginate(10);
+       
+    
         return view('users.allusers', ['users' => $users]);
     }
     
@@ -51,7 +52,7 @@ class AdminController extends Controller
 
         public function editpage(Request $request)
         {
-            $email = $request->session()->get('user_id');
+            $email = auth()->user()->email;
             // dd($email);
             $user = User::where('email', $email)->firstOrFail(); 
             return view('user.edit' , ['user' => $user]);
@@ -64,7 +65,7 @@ class AdminController extends Controller
 
         // dd($request->all());
         //Retrieve the user record to update
-        $email = $request->session()->get('user_id');
+        $email = auth()->user()->email;
         // dd($email);
         $user = User::where('email', $email)->firstOrFail(); 
         // dd($user->id);       
@@ -115,7 +116,7 @@ class AdminController extends Controller
 
         public function editPassword(Request $request)
         {
-            $email = $request->session()->get('user_id');
+            $email = auth()->user()->email;
             // dd($email);
             $user = User::where('email', $email)->firstOrFail(); 
             

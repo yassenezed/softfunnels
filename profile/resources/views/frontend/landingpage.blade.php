@@ -15,8 +15,6 @@
         {{-- </div> --}}
 
                     {{-- <div class="row"> --}}
-
-            
             @if ($block->type == "type1")
                 @include('frontend.blocks.type1', compact('block'))
             @endif

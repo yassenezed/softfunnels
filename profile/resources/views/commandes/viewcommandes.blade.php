@@ -3,16 +3,25 @@
     Preview
 @endsection
 @section('main')
-    <h2>Preview Page</h2>
-    <p>ID: {{ $form->id }}</p>
-    <p>La Page: {{ $form->landingpage->titre }}</p>
-    <p>Client: {{ $form->fullname }}</p>
-    <p>Email: {{ $form->email }}</p>
-    <p>Tel: {{ $form->phone }}</p>
-    <p>Adress: {{ $form->adress }}</p>
-    <p>company: {{ $form->company }}</p>
-    <p>Notes: {{ $form->notes }}</p>
-    <p>Montant: {{ $form->landingpage->price }}</p>
-    <p>Etat de commande: {{ $form->state }}</p>
-    <!-- Add any additional information you want to display -->
+    <div class="container">
+        <h2>Details</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="border p-2">ID: {{ $form->id }}</p>
+                <p class="border p-2">La Page: {{ $form->landingpage->titre }}</p>
+                <p class="border p-2">Client: {{ $form->fullname }}</p>
+                <p class="border p-2">Email: {{ $form->email }}</p>
+                <p class="border p-2">Tel: {{ $form->phone }}</p>
+            </div>
+            <div class="col-md-6">
+                <p class="border p-2">Adress: {{ $form->adress }}</p>
+                <p class="border p-2">Company: {{ $form->company }}</p>
+                <p class="border p-2">Notes: {{ $form->notes }}</p>
+                {{-- <p class="border p-2">Montant: {{ $form->landingpage->price }}</p> --}}
+                <p class="border p-2">Etat de commande: {{ $form->state }}</p>
+            </div>
+        </div>
+        <!-- Add any additional information you want to display -->
+    </div>
 @endsection
+

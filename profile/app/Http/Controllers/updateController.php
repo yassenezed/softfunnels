@@ -20,22 +20,24 @@ class updateController extends Controller
         $description = $request->description;
         $slug = $request->slug;
         $state = $request->state;  
-        $price = $request->price;        
+        // $price = $request->price;     
+        $type = $request->type;        
+   
       
         $data = [
             'titre' => $titre,
             'description' => $description,
             'slug' => $slug,
             'state' => $state,
-            'price' => $price,
-
+            // 'price' => $price,
+            'type' => $type,
         ];
         
         $request->validate([
             'titre'=>'required|min:2',
             'description'=>'required|min:2',
             'slug'=>'required|min:2' ,
-            'price'=>'required|min:2' 
+            // 'price'=>'required|min:2' 
 
         ]);
         

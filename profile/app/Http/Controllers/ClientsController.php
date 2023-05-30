@@ -13,11 +13,11 @@ class ClientsController extends Controller
    
     public function show()
     {
-        if (!session()->has('user_id')) {
-            session()->flash('error', 'Vous deveriez se-connecter!');
-            return redirect()->route('signin.index');        
-        }
-        $user_id = session()->get('user_id');
+        // if (!session()->has('user_id')) {
+        //     session()->flash('error', 'Vous deveriez se-connecter!');
+        //     return redirect()->route('signin.index');        
+        // }
+        $user_id = auth()->user()->email;
         $user = User::where('email', $user_id)->first();
         $role = $user->role;
         // dd($role);
