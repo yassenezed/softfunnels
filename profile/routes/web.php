@@ -26,13 +26,13 @@ Route::middleware([ 'auth' ])->group(function () {
 
     Route::get('/create_block', [BlockController::class, 'create'])->name('create_block.index');
 
-    // LP CREATIONS - ADDITION
-    Route::get('/landingpages', [landingpageController::class,'landingpageslist'])->name('landingpageslist.index');
-    Route::GET('/landingpages/ajouter', [landingpageController::class,'landingpageajouter'])->name('landingpageajouter.index');
-    Route::POST('/landingpages/storepage', [landingpageController::class,'storelp'])->name('storelp.index');
-
-
+    
+    
 });
+// LP CREATIONS - ADDITION
+Route::get('/landingpages', [landingpageController::class,'landingpageslist'])->name('landingpageslist.index');
+Route::GET('/landingpages/ajouter', [landingpageController::class,'landingpageajouter'])->name('landingpageajouter.index');
+Route::POST('/landingpages/storepage', [landingpageController::class,'storelp'])->name('storelp.index');
 // Catch-all route for 404 errors Redirect all 404 Pages To Home
 // Route::fallback(function () {
 //     return redirect()->route('home');

@@ -160,7 +160,6 @@
                         <table class="table text-start align-middle table-bordered table-hover mb-0">
                             @php
                             $user = auth()->user();
-                        
                             if ($user->role === 'admin') {
                                 $forms = \App\Models\Form::orderByDesc('id')->paginate(100);
                             } else {
@@ -176,7 +175,6 @@
                                 // }
                                 // $forms = $forms->sortByDesc('id');
                             }
-                           
                             @endphp
                         
                            

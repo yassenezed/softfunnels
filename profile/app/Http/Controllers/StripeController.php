@@ -84,8 +84,9 @@ public function success (Request $request)
     ]);
 
 
-    $user = User::find($userId);
-    auth()->login($user);
+    // $user = User::find($userId);
+    // dd($user->id);
+    // auth()->login($user);
     return redirect()->route('backadmin.dashboard');
 
 }
