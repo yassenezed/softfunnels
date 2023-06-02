@@ -70,7 +70,7 @@
 
       </ul>
 
-      <a href="{{ route('stripe.renew', ['id_pack' => '1', 'price' => '190', 'type' => 'Premium', 'quantity' => '1', 'user_id' => request('user_id')]) }}" class="href">
+      <a href="{{ route('stripe.renew', ['id_pack' => '2', 'price' => '190', 'type' => 'Premium', 'quantity' => '1', 'user_id' => request('user_id')]) }}" class="href">
         <button type="button" class="btn btn-primary card-img-bottom">Renew</button>
       </a>       </div>
     <!-- End Content -->
