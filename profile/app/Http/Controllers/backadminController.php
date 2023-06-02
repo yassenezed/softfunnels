@@ -1,7 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Pack;
 use App\Models\User;
+use App\Models\UserPacking;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -14,7 +18,40 @@ class backadminController extends Controller
         //     session()->flash('error', 'Vous deveriez se-connecter!');
         //     return redirect()->route('signin.index');        
         // }
-        return view('backadmin.dashboard');
+        $user = auth()->user();
+        if ($user->role === 'admin') {
+            return view('backadmin.dashboard');
+        }
+        // user id pack
+        $userPacking = UserPacking::where('user_id', $user->id)->where('active', 1)->first();
+
+        if ($userPacking && $userPacking->end_date <= \Carbon\Carbon::now()) 
+        {
+            $userPacking->active = false;
+            $userPacking->save();
+            return redirect()->route('renouveller', ['user_id' => $user->id]);
+        }
+        // $userPackingg = UserPacking::where('user_id', $user->id)->first();
+        // $userPackingg = UserPacking::where('user_id', $user->id)
+        // ->where('active', 0)
+        // ->latest()
+        // ->first();        // id of the pack
+        // $idpack=  $userPackingg->pack_id;
+        // dd($userPacking->end_date);
+        // get the pack infos like name price for stripe checkout
+        // $pack = Pack::where('id',$idpack)->first();
+        //pack price 
+        // $price = $pack->price ;
+        // pack name 
+        // $name = $pack->name;
+        // dd($name);
+        elseif (!$userPacking) {
+            return redirect()->route('renouveller', ['user_id' => $user->id]);
+        }
+        else
+        {
+            return view('backadmin.dashboard');
+        }
     }
     
     public function show(){
@@ -90,6 +127,11 @@ class backadminController extends Controller
            $request->session()->regenerate();
            session()->flash('success', 'Vous etes connecté! '.$login.' .');
         //    return view('backadmin.dashboard');
+
+
+
+
+        
            return redirect()->route('backadmin.dashboard');
 
        }else{
@@ -113,6 +155,7 @@ class backadminController extends Controller
    public function check(){
 
         dd('check');
+        
 
    }
 }

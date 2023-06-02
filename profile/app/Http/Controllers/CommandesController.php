@@ -38,7 +38,7 @@ class CommandesController extends Controller
         $forms = $forms->merge(Form::where('landing_page_id', $landingpage_id)->get());
         }
 
-// Sort the forms by ID in descending order
+        // Sort the forms by ID in descending order
         $forms = $forms->sortByDesc('id');
         
         return view('commandes.showcommandes', ['forms' => $forms]);

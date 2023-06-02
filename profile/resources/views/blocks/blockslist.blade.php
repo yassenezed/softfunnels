@@ -61,6 +61,16 @@
         </div>
         <div class="modal-body">
           <form id="addBlockForm" method="POST" action="{{ route ('storeblock.index') }}">
+                    @php
+                            // Check user's role
+                      $user = auth()->user();
+                      // dd($user->id);
+                      $userPacking = App\Models\UserPacking::where('user_id', $user->id)->where('active', 1)->first();
+                      // dd($userPacking->pack_id);
+                      $pack_id = $userPacking->pack_id
+                      // dd($pack_id );
+
+                    @endphp
               @csrf
               <input type="text" class="form-control" id="page_id" name="landingpage_id" value="{{ request()->get('page_id') }}" hidden>
               {{-- <input type="text" class="form-control" id="type" name="type" value="" hidden> --}}
@@ -80,36 +90,42 @@
                     <img class="img-fluid" src="{{ asset('img/typesof/Type1.png') }}" alt="Type 1" width="100" height="100"> 
                   </label>
                 </div>
+                @if ($pack_id == 2)
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="type" value="type2" id="type2">
                   <label class="form-check-label" for="type2">
                     <img class="img-fluid" src="{{ asset('img/typesof/Type2.png') }}" alt="Type 1" width="100" height="100"> 
                   </label>
                 </div>
+                @endif
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="type" value="caroussel" id="caroussel">
                   <label class="form-check-label" for="caroussel">
                     <img class="img-fluid" src="{{ asset('img/typesof/carousel.png') }}" alt="caroussel" width="90" height="90"> 
                   </label>
                 </div>
+                @if ($pack_id == 2)
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="type" value="faq" id="faq">
                   <label class="form-check-label" for="faq">
                     <img class="img-fluid" src="{{ asset('img/typesof/faq.png') }}" alt="faq" width="90" height="90"> 
                   </label>
                 </div>
+                @endif
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="type" value="iconplustext" id="iconplustext">
                   <label class="form-check-label" for="iconplustext">
                     <img class="img-fluid" src="{{ asset('img/typesof/iconplustext.svg') }}" alt="faq" width="90" height="90"> 
                   </label>
                 </div>
+                @if ($pack_id == 2)
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="type" value="video" id="video">
                   <label class="form-check-label" for="video">
                     <img class="img-fluid" src="{{ asset('img/typesof/video.png') }}" alt="video" width="90" height="90"> 
                   </label>
                 </div>
+                @endif
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="type" value="pack" id="pack">
                   <label class="form-check-label" for="pack">
@@ -122,24 +138,29 @@
                     <img class="img-fluid" src="{{ asset('img/typesof/trust.png') }}" alt="pack" width="90" height="90"> 
                   </label>
                 </div>
+                @if ($pack_id == 2)
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="type" value="reviews" id="reviews">
                   <label class="form-check-label" for="reviews">
                     <img class="img-fluid" src="{{ asset('img/typesof/reviews.png') }}" alt="pack" width="90" height="90"> 
                   </label>
                 </div>
+                @endif
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="type" value="form" id="form">
                   <label class="form-check-label" for="form">
                     <img class="img-fluid" src="{{ asset('img/typesof/form.png') }}" alt="pack" width="90" height="90"> 
                   </label>
                 </div>
+                @if ($pack_id == 2)
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="type" value="navbar" id="navbar">
                   <label class="form-check-label" for="navbar">
                     <img class="img-fluid" src="{{ asset('img/typesof/navbar.jpg') }}" alt="navbar" width="90" height="90"> 
                   </label>
                 </div>
+                @endif
+                @if ($pack_id == 2)
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="type" value="hero" id="hero">
                   <label class="form-check-label" for="hero">
@@ -149,9 +170,10 @@
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="type" value="cta" id="cta">
                   <label class="form-check-label" for="cta">
-                    <img class="img-fluid" src="{{ asset('img/typesof/slide.png') }}" alt="hero" width="90" height="90"> 
+                    <img class="img-fluid" src="{{ asset('img/typesof/cta.png') }}" alt="cta" width="90" height="90"> 
                   </label>
                 </div>
+                @endif
               </div>
 
           </form>

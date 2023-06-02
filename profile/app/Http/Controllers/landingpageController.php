@@ -99,7 +99,7 @@ class landingpageController extends Controller
     {
            
 
-            dd($request->all());
+            // dd($request->all());
             $landing_page_id= $request->id;
             $fullname = $request->name;
             $email = $request->email;
