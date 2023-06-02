@@ -87,7 +87,7 @@ public function success (Request $request)
     // $user = User::find($userId);
     // dd($user->id);
     // auth()->login($user);
-    return redirect()->route('backadmin.dashboard');
+    return redirect()->route('signinn.index');
 
 }
 

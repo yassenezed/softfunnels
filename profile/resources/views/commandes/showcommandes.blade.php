@@ -33,6 +33,5 @@
     </tr>
     @endforeach
 </table>
-{{-- {{ $forms->links() }} --}}
 
 @endsection
