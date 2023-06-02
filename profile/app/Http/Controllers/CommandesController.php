@@ -22,7 +22,7 @@ class CommandesController extends Controller
         $role = $user->role;
 
         if ($role === 'admin') {
-            $forms = Form::orderByDesc('id')->paginate(10);
+            $forms = Form::orderByDesc('id')->paginate(100000);
             return view('commandes.showcommandes', ['forms' => $forms]);
         }
        

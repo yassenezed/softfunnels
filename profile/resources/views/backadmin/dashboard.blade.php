@@ -106,11 +106,11 @@
                             @php
                             $user = auth()->user();
                             if ($user->role === 'admin') {
-                                $forms = \App\Models\Form::orderByDesc('id')->paginate(100);
+                                $forms = \App\Models\Form::orderBy('id', 'desc')->paginate(100);
                             } else {
                                 $landingpages = $user->landingpage()->with([ 'forms' => function ($q)
                                 {
-                                    $q->limit(100);
+                                    $q->orderBy('id', 'desc')->limit(100);
                                 } ])->get();
                                 // dd($landingpages);
                                 // $forms = collect();
